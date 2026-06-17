@@ -1,0 +1,45 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { posts } from "../../data/posts";
+
+export function getStaticPaths() {
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={`${post.title} — Vandhara Agrotech Learning Center`}>
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+    <div class="mb-8">
+      <a href="/blog" class="text-sm text-brand-green font-medium hover:text-brand-green-light transition-colors">&larr; Back to Learning Center</a>
+    </div>
+
+    <header class="mb-8">
+      <h1 class="text-3xl sm:text-4xl font-bold text-brand-green">{post.title}</h1>
+      <div class="flex flex-wrap items-center gap-4 mt-3 text-sm text-gray-500">
+        <time>{post.date}</time>
+        <span>by {post.author}</span>
+      </div>
+      <div class="flex flex-wrap gap-2 mt-3">
+        {post.tags.map((tag) => (
+          <span class="text-xs bg-green-50 text-brand-green px-2.5 py-1 rounded-full">{tag}</span>
+        ))}
+      </div>
+    </header>
+
+    <div class="prose prose-green max-w-none">
+      <Fragment set:html={post.content} />
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <a href="/blog" class="inline-flex items-center gap-2 text-brand-green font-medium hover:text-brand-green-light transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" /></svg>
+        More Articles
+      </a>
+    </div>
+  </article>
+</Layout>

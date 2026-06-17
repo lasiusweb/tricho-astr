@@ -1,0 +1,117 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BrochureButton from "../components/BrochureButton.astro";
+
+const audiences = [
+  { title: "Wholesalers", desc: "Bulk distribution partnerships with competitive pricing and dedicated support." },
+  { title: "Dealers & Retailers", desc: "Stock Vandhara products at your agri-input store with marketing collateral and training." },
+  { title: "FPOs / Farmer Producer Organizations", desc: "Special FPO pricing and training programmes for member farmers." },
+  { title: "Distributors", desc: "Exclusive territory distribution opportunities with sales support." },
+  { title: "Pesticide & Fertilizer Shops", desc: "Add organic product lines to your existing portfolio and meet growing farmer demand." },
+];
+
+const benefits = [
+  { icon: "📈", title: "Growing Market", desc: "Organic input market in India is growing at 20%+ annually. Be part of the shift." },
+  { icon: "🏭", title: "Direct from Manufacturer", desc: "Manufactured by UMA Enterprises — no middlemen, better margins." },
+  { icon: "📦", title: "Multiple Pack Sizes", desc: "5L, 20L, 50L options to suit every customer segment." },
+  { icon: "🎓", title: "Training & Support", desc: "Product training, farmer demo support, and marketing materials provided." },
+  { icon: "🌍", title: "Expanding to South India", desc: "Active recruitment in Karnataka, Tamil Nadu, Andhra, Telangana, Kerala." },
+  { icon: "✅", title: "FCO & NPOP Certified", desc: "Full regulatory compliance. Sell with confidence." },
+];
+---
+
+<Layout title="Partner with Us — Vandhara Agrotech | Distributor & Dealer Opportunities">
+  <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+    <div class="max-w-3xl mb-12">
+      <h1 class="text-3xl sm:text-4xl font-bold text-brand-green mb-4">Partner with Vandhara Agrotech</h1>
+      <p class="text-lg text-gray-600 leading-relaxed">
+        We're building a strong distribution network across India. Whether you're a wholesaler, dealer, FPO, or distributor — let's grow together.
+      </p>
+    </div>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-brand-green mb-6">Who We Work With</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {audiences.map((a) => (
+          <div class="bg-white rounded-xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
+            <h3 class="font-bold text-brand-green">{a.title}</h3>
+            <p class="text-sm text-gray-600 mt-2 leading-relaxed">{a.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-brand-green mb-6">Why Partner with Us</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {benefits.map((b) => (
+          <div class="flex gap-4">
+            <span class="text-3xl shrink-0">{b.icon}</span>
+            <div>
+              <h3 class="font-semibold text-brand-green">{b.title}</h3>
+              <p class="text-sm text-gray-600 mt-1">{b.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="bg-green-50 rounded-xl p-6 sm:p-8 mb-12">
+      <h2 class="text-2xl font-bold text-brand-green mb-4">Our Product Range for Partners</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-brand-green text-white">
+              <th class="text-left p-3 font-semibold">Product</th>
+              <th class="text-left p-3 font-semibold">Category</th>
+              <th class="text-left p-3 font-semibold">Pack Sizes</th>
+              <th class="text-left p-3 font-semibold">Target Audience</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="bg-white">
+              <td class="p-3 font-semibold text-brand-green">Soil Recharge</td>
+              <td class="p-3 text-gray-600">Liquid Organic Manure</td>
+              <td class="p-3 text-gray-600">5L, 20L, 50L</td>
+              <td class="p-3 text-gray-600">All farmers</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="p-3 font-semibold text-brand-green">Root Guard</td>
+              <td class="p-3 text-gray-600">Root Protectant</td>
+              <td class="p-3 text-gray-600">5L, 20L, 50L</td>
+              <td class="p-3 text-gray-600">High-value crop growers</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="p-3 font-semibold text-brand-green">Agni</td>
+              <td class="p-3 text-gray-600">Growth Regulator</td>
+              <td class="p-3 text-gray-600">100ml, 250ml, 500ml, 1L, 5L</td>
+              <td class="p-3 text-gray-600">Paddy, vegetable growers</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="p-3 font-semibold text-brand-green">Vaayu</td>
+              <td class="p-3 text-gray-600">Pest Repellent</td>
+              <td class="p-3 text-gray-600">5L, 20L, 50L</td>
+              <td class="p-3 text-gray-600">Paddy, cotton growers</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="flex flex-wrap gap-4">
+      <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-gold text-white font-semibold hover:bg-amber-600 transition-colors">
+        Become a Partner
+      </a>
+      <BrochureButton label="Download Partner Brochure" />
+    </div>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Vandhara Agrotech Partner Program",
+      "description": "Distribution and dealer partnership opportunities for organic agricultural inputs across India",
+      "brand": { "@type": "Brand", "name": "Vandhara Agrotech" },
+      "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
+    })} />
+  </article>
+</Layout>

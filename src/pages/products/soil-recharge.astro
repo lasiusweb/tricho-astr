@@ -1,0 +1,193 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import B2BToggle from "../../components/B2BToggle.astro";
+import BrochureButton from "../../components/BrochureButton.astro";
+import ProductVariantGallery from "../../components/ProductVariantGallery.astro";
+import YouTubeEmbed from "../../components/YouTubeEmbed.astro";
+import { productList } from "../../data/products";
+
+const product = productList.find((p) => p.slug === "soil-recharge")!;
+---
+
+<Layout title="Vandhara Soil Recharge — Beneficial Microbes Consortia | Organic Liquid Manure">
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+    <div class="mb-8">
+      <a href="/products" class="text-sm text-brand-green font-medium hover:text-brand-green-light transition-colors">&larr; All Products</a>
+    </div>
+
+    <div class="bg-gradient-to-r from-brand-green to-green-700 rounded-2xl p-8 sm:p-12 text-white mb-10">
+      <h1 class="text-3xl sm:text-4xl font-bold">{product.nameUpper}</h1>
+      <p class="text-brand-gold-light font-semibold mt-2 text-lg">{product.tagline}</p>
+      <p class="mt-4 text-green-100 text-lg leading-relaxed max-w-2xl">{product.description}</p>
+      <p class="mt-2 text-green-100 font-medium">Best for: {product.bestFor}</p>
+    </div>
+
+    <ProductVariantGallery variants={product.variants} productName={product.name} />
+
+    <B2BToggle>
+      <div slot="farmer">
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-brand-green mb-4">Benefits</h2>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-brand-green-light mt-1 shrink-0">&#10003;</span>
+              <span>Provides readily available source of Beneficial Microbes consortia, micronutrients and organic matter to boost soil fertility</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-green-light mt-1 shrink-0">&#10003;</span>
+              <span>Enriches soil life &amp; structure</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-green-light mt-1 shrink-0">&#10003;</span>
+              <span>High levels of Organic Carbon (OC)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-green-light mt-1 shrink-0">&#10003;</span>
+              <span>Reduces chemical fertilizer use by <strong>30-40%</strong></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-green-light mt-1 shrink-0">&#10003;</span>
+              <span>Improves water holding capacity &rarr; drought resilience</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-brand-green mb-4">Method of Application</h2>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Soil Drench:</strong> Mix 3-5 L in 200 L water &rarr; drench near plant base</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Fertigation:</strong> Inject directly into drip irrigation system</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Broadcast:</strong> Mix with irrigation water during field flooding</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="mb-10 bg-green-50 rounded-xl p-6">
+          <h2 class="text-xl font-bold text-brand-green mb-4">Dosage &amp; Schedule</h2>
+          <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-white rounded-lg p-4">
+              <dt class="text-sm text-gray-500">Dosage per Acre</dt>
+              <dd class="text-lg font-bold text-brand-green">3-5 Litres</dd>
+            </div>
+            <div class="bg-white rounded-lg p-4">
+              <dt class="text-sm text-gray-500">Time of Application</dt>
+              <dd class="text-sm font-medium text-gray-800">Early morning (6-9 AM) or late evening (4-6 PM)</dd>
+              <dd class="text-xs text-gray-500 mt-1">Avoid: Midday heat (&gt;35&deg;C) &amp; heavy rain days</dd>
+            </div>
+            <div class="bg-white rounded-lg p-4">
+              <dt class="text-sm text-gray-500">Interval</dt>
+              <dd class="text-sm font-medium text-gray-800">Every 10-15 days during crop season</dd>
+              <dd class="text-xs text-gray-500 mt-1">First dose: 15 days after transplanting/sowing</dd>
+            </div>
+            <div class="bg-white rounded-lg p-4">
+              <dt class="text-sm text-gray-500">Recommended Crops</dt>
+              <dd class="text-sm font-medium text-gray-800">All Horticulture &amp; Agriculture Crops</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="mb-10">
+          <h2 class="text-xl font-bold text-brand-green mb-4">How to Apply (3 Simple Steps)</h2>
+          <ol class="space-y-4">
+            <li class="flex items-start gap-4">
+              <span class="flex items-center justify-center w-8 h-8 rounded-full bg-brand-green text-white font-bold text-sm shrink-0">1</span>
+              <span>Take 2 litre of Vandhara Soil Recharge in 100 litre water tank</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="flex items-center justify-center w-8 h-8 rounded-full bg-brand-green text-white font-bold text-sm shrink-0">2</span>
+              <span>Stir well for 2 minutes</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="flex items-center justify-center w-8 h-8 rounded-full bg-brand-green text-white font-bold text-sm shrink-0">3</span>
+              <span>Spray near roots OR inject through drip system</span>
+            </li>
+          </ol>
+        </section>
+      </div>
+
+      <div slot="dealer">
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-brand-green mb-4">Dealer / Distributor Information</h2>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Product:</strong> {product.nameUpper} &mdash; {product.tagline}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Category:</strong> Liquid Fermented Organic Manure</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Packaging:</strong> 5L, 20L, 50L</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Regulatory Compliance:</strong> FCO &amp; NPOP certified</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Training &amp; Marketing Support</strong> available for channel partners</span>
+            </li>
+          </ul>
+          <div class="mt-6">
+            <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-gold text-white font-semibold hover:bg-amber-600 transition-colors">
+              Get Bulk Pricing
+            </a>
+          </div>
+        </section>
+      </div>
+    </B2BToggle>
+
+    <div class="flex flex-wrap gap-4 mt-8">
+      <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-gold text-white font-semibold hover:bg-amber-600 transition-colors">
+        Get a Quote
+      </a>
+      <BrochureButton />
+    </div>
+
+    <YouTubeEmbed youtubeUrl={product.youtubeUrl} productName={product.name} />
+
+    <section class="mt-12 border-t border-gray-200 pt-8">
+      <h2 class="text-xl font-bold text-brand-green mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <details class="bg-white rounded-lg border border-gray-200 p-4">
+          <summary class="font-semibold text-gray-800 cursor-pointer">How is Soil Recharge different from chemical fertilizers?</summary>
+          <p class="mt-2 text-sm text-gray-600">Soil Recharge is a fermented organic liquid manure that feeds soil microbes and builds long-term fertility, whereas chemical fertilizers provide a quick nutrient hit but degrade soil health over time.</p>
+        </details>
+        <details class="bg-white rounded-lg border border-gray-200 p-4">
+          <summary class="font-semibold text-gray-800 cursor-pointer">Can I use Soil Recharge with chemical fertilizers?</summary>
+          <p class="mt-2 text-sm text-gray-600">Yes. In fact, regular use can reduce your chemical fertilizer requirement by 30-40% while improving soil health.</p>
+        </details>
+        <details class="bg-white rounded-lg border border-gray-200 p-4">
+          <summary class="font-semibold text-gray-800 cursor-pointer">What crops is it suitable for?</summary>
+          <p class="mt-2 text-sm text-gray-600">All horticulture and agriculture crops including vegetables, fruits, paddy, pulses, cotton, and plantation crops.</p>
+        </details>
+      </div>
+    </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Vandhara Soil Recharge",
+      "description": "Beneficial Microbes Consortia — Liquid Fermented Organic Manure that reduces chemical fertilizer use by 30-40%",
+      "brand": { "@type": "Brand", "name": "Vandhara Agrotech" },
+      "manufacturer": { "@type": "Organization", "name": "UMA Enterprises" },
+      "category": "Organic Fertilizer",
+      "applicationCategory": "Agriculture",
+      "offers": [
+        { "@type": "Offer", "name": "5 Litre Pack", "availability": "https://schema.org/InStock" },
+        { "@type": "Offer", "name": "20 Litre Pack", "availability": "https://schema.org/InStock" },
+        { "@type": "Offer", "name": "50 Litre Pack", "availability": "https://schema.org/InStock" },
+      ],
+    })} />
+  </article>
+</Layout>

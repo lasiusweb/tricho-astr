@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const pillars = [
+  {
+    icon: "🌱",
+    title: "Rejuvenates Soil Health",
+    desc: "Damaged by Excessive Chemical Use",
+    detail: "Our products actively restore soil biology and organic matter depleted by decades of chemical farming.",
+  },
+  {
+    icon: "🧪",
+    title: "Zero Synthetic Chemicals",
+    desc: "At Any Stage",
+    detail: "From raw material to finished product, no synthetic chemicals are used at any stage of manufacturing.",
+  },
+  {
+    icon: "🌍",
+    title: "Local Sourcing",
+    desc: "Reduces Carbon Footprint",
+    detail: "We source animal dung, Napier grass, and agro-waste locally, reducing transportation emissions and supporting local economies.",
+  },
+  {
+    icon: "♻️",
+    title: "Upcycled",
+    desc: "All Waste Materials Composted or Upcycled",
+    detail: "Nothing goes to waste — every byproduct of our CBG and composting process is upcycled into valuable agricultural inputs.",
+  },
+  {
+    icon: "🌿",
+    title: "Organic Farming Principles",
+    desc: "Align with Permaculture & Organic Farming",
+    detail: "Our practices and products are designed to work in harmony with nature, supporting permaculture and certified organic farming systems.",
+  },
+];
+---
+
+<Layout title="Sustainability — Vandhara Agrotech | Eco-Friendly Farming Solutions">
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+    <h1 class="text-3xl sm:text-4xl font-bold text-brand-green mb-4">Sustainability</h1>
+    <p class="text-lg text-gray-600 mb-10 leading-relaxed">
+      Every step of our process is designed with the planet in mind. From sourcing to production to the final product, sustainability is not an afterthought — it's the foundation.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      {pillars.map((p) => (
+        <div class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="text-4xl mb-4">{p.icon}</div>
+          <h2 class="text-xl font-bold text-brand-green">{p.title}</h2>
+          <p class="text-sm font-medium text-brand-gold mt-1">{p.desc}</p>
+          <p class="text-gray-600 mt-3 text-sm leading-relaxed">{p.detail}</p>
+        </div>
+      ))}
+    </div>
+
+    <section class="bg-green-50 rounded-xl p-6 sm:p-8 mb-10">
+      <h2 class="text-2xl font-bold text-brand-green mb-4">Circular Economy in Action</h2>
+      <p class="text-gray-700 leading-relaxed">
+        Our CBG (Compressed Bio-Gas) plant is the heart of our circular model. Agro-residue feeds the plant, which generates clean energy and nutrient-rich digestate. That digestate is composted into premium organic liquid fertilizers — completing a cycle where nothing is wasted and everything nourishes the next stage.
+      </p>
+      <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+        <div class="bg-white rounded-lg p-4">
+          <div class="text-2xl font-bold text-brand-green">100%</div>
+          <div class="text-xs text-gray-500 mt-1">Renewable Inputs</div>
+        </div>
+        <div class="bg-white rounded-lg p-4">
+          <div class="text-2xl font-bold text-brand-green">Zero</div>
+          <div class="text-xs text-gray-500 mt-1">Synthetic Chemicals</div>
+        </div>
+        <div class="bg-white rounded-lg p-4">
+          <div class="text-2xl font-bold text-brand-green">100%</div>
+          <div class="text-xs text-gray-500 mt-1">Waste Upcycled</div>
+        </div>
+        <div class="bg-white rounded-lg p-4">
+          <div class="text-2xl font-bold text-brand-green">30-40%</div>
+          <div class="text-xs text-gray-500 mt-1">Fertilizer Reduction</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="bg-gradient-to-r from-brand-green to-green-700 rounded-2xl p-8 sm:p-12 text-white text-center">
+      <h2 class="text-2xl font-bold">Join the Regenerative Farming Movement</h2>
+      <p class="mt-3 text-green-100">Switch from synthetic to sustainable. Every acre matters.</p>
+      <a href="/contact" class="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-gold text-white font-semibold hover:bg-amber-600 transition-colors">
+        Get Started Today
+      </a>
+    </div>
+  </article>
+</Layout>

@@ -1,11 +1,126 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const products = [
+  {
+    slug: "soil-recharge",
+    name: "Soil Recharge",
+    tagline: "Beneficial Microbes Consortia",
+    description: "Transforms tired soil into living soil with organic carbon + beneficial microbes.",
+    benefit: "Reduces chemical fertilizer use by 30-40%",
+  },
+  {
+    slug: "root-guard",
+    name: "Root Guard",
+    tagline: "Root Disease Shield",
+    description: "Fights root diseases, unlocks deep water & phosphorus, boosts plant immunity.",
+    benefit: "Prevents root rot & suppresses soil-borne diseases",
+  },
+  {
+    slug: "agni",
+    name: "Agni",
+    tagline: "Growth Accelerator",
+    description: "Natural growth hormones for faster growth, stress tolerance, and better yield.",
+    benefit: "Triggers dark green growth in 7 days",
+  },
+  {
+    slug: "vaayu",
+    name: "Vaayu",
+    tagline: "Nature's Pest Defence",
+    description: "Restricts pests in early stages — safe for crops, family, and environment.",
+    benefit: "Integrated Pest Management for all crops",
+  },
+];
+
+const sustainabilityPoints = [
+  { icon: "🌱", label: "Rejuvenates Soil Health", desc: "Damaged by Excessive Chemical Use" },
+  { icon: "🧪", label: "Zero Synthetic Chemicals", desc: "At Any Stage" },
+  { icon: "🌍", label: "Local Sourcing", desc: "Reduces Carbon Footprint" },
+  { icon: "♻️", label: "Upcycled", desc: "All Waste Materials Composted or Upcycled" },
+  { icon: "🌿", label: "Organic Farming Principles", desc: "Align with Permaculture & Organic Farming" },
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Vandhara Agrotech — Eco-Friendly Organic Fertilizers | Soil Health Solutions">
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-green via-green-800 to-green-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      <div class="max-w-3xl">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+          Restoring India's
+          <span class="text-brand-gold">Soil Health</span>
+        </h1>
+        <p class="mt-6 text-lg sm:text-xl text-green-100 leading-relaxed max-w-2xl">
+          Eco-friendly, scientifically developed fermented organic liquids that blend traditional wisdom with modern microbiology. Empowering farmers to shift from synthetic inputs to regenerative soil nutrition.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/products" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-gold text-white font-semibold hover:bg-amber-600 transition-colors">
+            Explore Products
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+          </a>
+          <a href="/partner" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition-colors">
+            Partner with Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-brand-green">Our Products</h2>
+      <p class="mt-3 text-gray-600 text-lg max-w-2xl mx-auto">Scientifically developed fermented organic liquids for every stage of crop growth</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {products.map((p) => (
+        <a
+          href={`/products/${p.slug}`}
+          class="group bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md hover:border-brand-green-light/30 transition-all"
+        >
+          <h3 class="text-xl font-bold text-brand-green group-hover:text-brand-green-light transition-colors">{p.name}</h3>
+          <p class="text-sm font-medium text-brand-gold mt-1">{p.tagline}</p>
+          <p class="text-sm text-gray-600 mt-3 leading-relaxed">{p.description}</p>
+          <p class="mt-4 text-sm font-semibold text-brand-green-light">{p.benefit}</p>
+        </a>
+      ))}
+    </div>
+    <div class="text-center mt-10">
+      <a href="/products" class="inline-flex items-center gap-2 text-brand-green font-semibold hover:text-brand-green-light transition-colors">
+        View Full Comparison
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+      </a>
+    </div>
+  </section>
+
+  <section class="bg-white py-16 lg:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-brand-green">Our Commitment to Sustainability</h2>
+        <p class="mt-3 text-gray-600 text-lg">Every step of our process is designed with the planet in mind</p>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+        {sustainabilityPoints.map((s) => (
+          <div class="text-center p-4">
+            <div class="text-4xl mb-3">{s.icon}</div>
+            <h3 class="font-semibold text-brand-green text-sm">{s.label}</h3>
+            <p class="text-xs text-gray-500 mt-1">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+    <div class="bg-gradient-to-r from-brand-green to-green-700 rounded-2xl p-8 sm:p-12 text-white text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold">Ready to Transform Your Soil?</h2>
+      <p class="mt-3 text-green-100 text-lg max-w-xl mx-auto">Get in touch with our team for personalized recommendations and bulk pricing.</p>
+      <div class="mt-6 flex flex-wrap justify-center gap-4">
+        <a href="/contact" class="px-6 py-3 rounded-lg bg-brand-gold text-white font-semibold hover:bg-amber-600 transition-colors">
+          Get a Quote
+        </a>
+        <a href="/products" class="px-6 py-3 rounded-lg border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition-colors">
+          View Products
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>

@@ -1,0 +1,112 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import BrochureButton from "../../components/BrochureButton.astro";
+
+const products = [
+  {
+    slug: "soil-recharge",
+    name: "Soil Recharge",
+    tagline: "Beneficial Microbes Consortia",
+    bestFor: "All field & vegetable crops needing soil revival",
+    keyBenefit: "Reduces chemical fertilizer use by 30-40%",
+    dosage: "3-5 L/acre",
+    application: "Soil drench, fertigation, or broadcast",
+  },
+  {
+    slug: "root-guard",
+    name: "Root Guard",
+    tagline: "Root Disease Shield",
+    bestFor: "Disease-prone soils & high-value crops",
+    keyBenefit: "Prevents root rot & suppresses soil-borne diseases",
+    dosage: "3-5 L/acre",
+    application: "Soil drench, fertigation, seed treatment",
+  },
+  {
+    slug: "agni",
+    name: "Agni",
+    tagline: "Growth Accelerator",
+    bestFor: "Crops with slow growth or yellowing leaves",
+    keyBenefit: "Natural growth hormones — visible results in 7 days",
+    dosage: "2-3 L/acre (drip) / 20ml/L (foliar)",
+    application: "Foliar spray or drip irrigation",
+  },
+  {
+    slug: "vaayu",
+    name: "Vaayu",
+    tagline: "Nature's Pest Defence",
+    bestFor: "Integrated Pest Management in all crops",
+    keyBenefit: "Restricts pests in 1st & 2nd stage",
+    dosage: "3-5 L/acre",
+    application: "Foliar spray or soil drench",
+  },
+];
+---
+
+<Layout title="Our Products — Vandhara Agrotech | Organic Liquid Fertilizers">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+    <div class="text-center mb-12">
+      <h1 class="text-3xl sm:text-4xl font-bold text-brand-green">Our Products</h1>
+      <p class="mt-3 text-gray-600 text-lg max-w-2xl mx-auto">
+        Scientifically developed fermented organic liquids for complete crop nutrition and protection
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      {products.map((p) => (
+        <a
+          href={`/products/${p.slug}`}
+          class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md hover:border-brand-green-light/30 transition-all group"
+        >
+          <h2 class="text-xl font-bold text-brand-green group-hover:text-brand-green-light transition-colors">{p.name}</h2>
+          <p class="text-sm font-medium text-brand-gold mt-1">{p.tagline}</p>
+          <p class="text-sm text-gray-500 mt-1"><span class="font-medium">Best for:</span> {p.bestFor}</p>
+          <p class="text-sm text-gray-700 mt-3 leading-relaxed">{p.keyBenefit}</p>
+          <div class="mt-4 flex flex-wrap gap-4 text-xs text-gray-500">
+            <span>Dosage: {p.dosage}</span>
+            <span>Method: {p.application}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-10">
+      <div class="p-6 sm:p-8">
+        <h2 class="text-2xl font-bold text-brand-green mb-6">Compare All Products</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-brand-green text-white">
+                <th class="text-left p-3 font-semibold">Product</th>
+                <th class="text-left p-3 font-semibold">Best For</th>
+                <th class="text-left p-3 font-semibold">Key Benefit</th>
+                <th class="text-left p-3 font-semibold">Dosage / Acre</th>
+                <th class="text-left p-3 font-semibold">Application</th>
+              </tr>
+            </thead>
+            <tbody>
+              {products.map((p, i) => (
+                <tr class={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
+                  <td class="p-3 font-semibold text-brand-green">
+                    <a href={`/products/${p.slug}`} class="hover:text-brand-green-light transition-colors">{p.name}</a>
+                  </td>
+                  <td class="p-3 text-gray-600">{p.bestFor}</td>
+                  <td class="p-3 text-gray-700">{p.keyBenefit}</td>
+                  <td class="p-3 text-gray-600">{p.dosage}</td>
+                  <td class="p-3 text-gray-600">{p.application}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-between gap-4 bg-gradient-to-r from-brand-green to-green-700 rounded-xl p-6 sm:p-8 text-white">
+      <div>
+        <h3 class="text-xl font-bold">Need detailed information?</h3>
+        <p class="text-green-100 text-sm mt-1">Download our complete product catalog</p>
+      </div>
+      <BrochureButton label="Download Master Catalog" />
+    </div>
+  </section>
+</Layout>

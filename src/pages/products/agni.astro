@@ -1,0 +1,167 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import B2BToggle from "../../components/B2BToggle.astro";
+import BrochureButton from "../../components/BrochureButton.astro";
+import ProductVariantGallery from "../../components/ProductVariantGallery.astro";
+import YouTubeEmbed from "../../components/YouTubeEmbed.astro";
+import { productList } from "../../data/products";
+
+const product = productList.find((p) => p.slug === "agni")!;
+---
+
+<Layout title="Vandhara Agni — Growth Accelerator | Organic Plant Growth Promoter">
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+    <div class="mb-8">
+      <a href="/products" class="text-sm text-brand-green font-medium hover:text-brand-green-light transition-colors">&larr; All Products</a>
+    </div>
+
+    <div class="bg-gradient-to-r from-brand-green to-green-700 rounded-2xl p-8 sm:p-12 text-white mb-10">
+      <h1 class="text-3xl sm:text-4xl font-bold">{product.nameUpper}</h1>
+      <p class="text-brand-gold-light font-semibold mt-2 text-lg">{product.tagline}</p>
+      <p class="mt-4 text-green-100 text-lg leading-relaxed max-w-2xl">{product.description}</p>
+      <p class="mt-2 text-green-100 font-medium">Best for: {product.bestFor}</p>
+    </div>
+
+    <ProductVariantGallery variants={product.variants} productName={product.name} />
+
+    <B2BToggle>
+      <div slot="farmer">
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-brand-green mb-4">Benefits</h2>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-brand-green-light mt-1 shrink-0">&#10003;</span>
+              <span>Natural growth hormones for faster growth and stress tolerance</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-green-light mt-1 shrink-0">&#10003;</span>
+              <span>Improves nutrient uptake</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-green-light mt-1 shrink-0">&#10003;</span>
+              <span>Prevents yellowing, boosts photosynthesis and better yield</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-green-light mt-1 shrink-0">&#10003;</span>
+              <span>Improves leaf thickness &amp; disease resistance</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-brand-green mb-4">Method of Application</h2>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Foliar Spray:</strong> 3 ml per litre of water. Spray evenly on leaves until runoff (both sides)</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Drip Application:</strong> 2-3 Litres per Acre</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="mb-10 bg-green-50 rounded-xl p-6">
+          <h2 class="text-xl font-bold text-brand-green mb-4">Dosage &amp; Schedule</h2>
+          <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-white rounded-lg p-4">
+              <dt class="text-sm text-gray-500">Dosage per Acre</dt>
+              <dd class="text-sm font-medium text-gray-800">Foliar: 3ml/L water | Drip: 2-3 Litres</dd>
+            </div>
+            <div class="bg-white rounded-lg p-4">
+              <dt class="text-sm text-gray-500">Time of Application</dt>
+              <dd class="text-sm font-medium text-gray-800">Early morning before 10 AM OR late evening after 4 PM</dd>
+              <dd class="text-xs text-gray-500 mt-1">Never spray during midday heat or when rain expected within 4 hrs</dd>
+            </div>
+            <div class="bg-white rounded-lg p-4">
+              <dt class="text-sm text-gray-500">Interval</dt>
+              <dd class="text-sm font-medium text-gray-800">Every 15-20 days during active growth</dd>
+              <dd class="text-xs text-gray-500 mt-1">Key stages: 15 DAS &rarr; Pre-flowering &rarr; Fruit setting</dd>
+            </div>
+            <div class="bg-white rounded-lg p-4">
+              <dt class="text-sm text-gray-500">Recommended Crops</dt>
+              <dd class="text-sm font-medium text-gray-800">All Horticulture &amp; Agriculture Crops</dd>
+            </div>
+          </dl>
+        </section>
+      </div>
+
+      <div slot="dealer">
+        <section class="mb-10">
+          <h2 class="text-2xl font-bold text-brand-green mb-4">Dealer / Distributor Information</h2>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Product:</strong> {product.nameUpper} &mdash; {product.tagline}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Category:</strong> Natural Plant Growth Regulator</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Packaging:</strong> 5L, 20L, 50L</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Regulatory Compliance:</strong> FCO &amp; NPOP certified</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+              <span><strong>Fast-moving SKU</strong> for paddy, vegetable, and horticulture growers</span>
+            </li>
+          </ul>
+          <div class="mt-6">
+            <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-gold text-white font-semibold hover:bg-amber-600 transition-colors">
+              Get Bulk Pricing
+            </a>
+          </div>
+        </section>
+      </div>
+    </B2BToggle>
+
+    <div class="flex flex-wrap gap-4 mt-8">
+      <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-gold text-white font-semibold hover:bg-amber-600 transition-colors">
+        Get a Quote
+      </a>
+      <BrochureButton />
+    </div>
+
+    <YouTubeEmbed youtubeUrl={product.youtubeUrl} productName={product.name} />
+
+    <section class="mt-12 border-t border-gray-200 pt-8">
+      <h2 class="text-xl font-bold text-brand-green mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <details class="bg-white rounded-lg border border-gray-200 p-4">
+          <summary class="font-semibold text-gray-800 cursor-pointer">How quickly will I see results with Agni?</summary>
+          <p class="mt-2 text-sm text-gray-600">Most farmers notice visible greening and thicker leaves within 7 days of application.</p>
+        </details>
+        <details class="bg-white rounded-lg border border-gray-200 p-4">
+          <summary class="font-semibold text-gray-800 cursor-pointer">Can I use Agni during flowering?</summary>
+          <p class="mt-2 text-sm text-gray-600">Yes. Apply at pre-flowering and fruit setting stages for best results.</p>
+        </details>
+        <details class="bg-white rounded-lg border border-gray-200 p-4">
+          <summary class="font-semibold text-gray-800 cursor-pointer">What dilution should I use for foliar spray?</summary>
+          <p class="mt-2 text-sm text-gray-600">Mix 3 ml per litre of water. Spray evenly on both upper and lower leaf surfaces until runoff.</p>
+        </details>
+      </div>
+    </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Vandhara Agni",
+      "description": "Growth Accelerator — natural plant growth regulator for faster growth, stress tolerance, and better yield",
+      "brand": { "@type": "Brand", "name": "Vandhara Agrotech" },
+      "manufacturer": { "@type": "Organization", "name": "UMA Enterprises" },
+      "category": "Natural Plant Growth Regulator",
+      "applicationCategory": "Agriculture",
+      "offers": [
+        { "@type": "Offer", "name": "5 Litre Pack", "availability": "https://schema.org/InStock" },
+        { "@type": "Offer", "name": "20 Litre Pack", "availability": "https://schema.org/InStock" },
+        { "@type": "Offer", "name": "50 Litre Pack", "availability": "https://schema.org/InStock" },
+      ],
+    })} />
+  </article>
+</Layout>

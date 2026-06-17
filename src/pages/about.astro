@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const processSteps = [
+  { title: "Agro-residue", description: "Turning waste into worth — we collect animal dung, Napier grass, and agro-waste to begin the cycle of sustainable farming." },
+  { title: "CBG Plant", description: "The heart of our operation — our Compressed Bio-Gas plant extracts clean energy while preparing organic digestate for further transformation." },
+  { title: "Post CBG Digestate", description: "The nutrient-rich byproduct of CBG processing — where waste begins its journey into becoming premium organic liquid." },
+  { title: "Windrow Composting", description: "Layer by layer, we stack and cure the digestate under controlled conditions to boost microbial activity and organic value." },
+  { title: "Sieving & Packaging", description: "Sorted, screened, and packed with care — every bottle is uniform, user-friendly, and sealed for freshness." },
+  { title: "Storage & Marketing", description: "From warehouse to your backyard — we store responsibly and deliver through trusted retail and online channels." },
+];
+---
+
+<Layout title="About Us — Vandhara Agrotech | Organic Fertilizer Manufacturer">
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+    <h1 class="text-3xl sm:text-4xl font-bold text-brand-green mb-8">About Vandhara Agrotech</h1>
+
+    <div class="prose prose-green max-w-none">
+      <p class="text-lg text-gray-700 leading-relaxed">
+        <strong>Vandhara Agrotech</strong> was founded with a vision to restore India's soil health by offering eco-friendly, scientifically developed alternatives to chemical fertilizers.
+      </p>
+      <p class="text-gray-700 leading-relaxed mt-4">
+        Created by a team of agriculture and sustainability experts, our products blend traditional organic fermented liquid wisdom with modern microbiological techniques to produce carbon-rich, fermented organic liquids. Our mission is to empower farmers and gardeners of all scales to shift from synthetic inputs to sustainable, regenerative soil nutrition.
+      </p>
+    </div>
+
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold text-brand-green mb-8">Our Manufacturing Process</h2>
+      <div class="space-y-6">
+        {processSteps.map((step, i) => (
+          <div class="flex gap-4 sm:gap-6">
+            <div class="flex flex-col items-center">
+              <div class="flex items-center justify-center w-10 h-10 rounded-full bg-brand-green text-white font-bold shrink-0">
+                {i + 1}
+              </div>
+              {i < processSteps.length - 1 && <div class="w-0.5 flex-1 bg-green-200 mt-2" />}
+            </div>
+            <div class="pb-6">
+              <h3 class="text-xl font-bold text-brand-green">{step.title}</h3>
+              <p class="text-gray-600 mt-1 leading-relaxed">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mt-12 bg-green-50 rounded-xl p-6 sm:p-8">
+      <h2 class="text-2xl font-bold text-brand-green mb-4">Manufacturing &amp; Marketing</h2>
+      <p class="text-gray-700">Manufactured and Marketed by:</p>
+      <p class="text-lg font-semibold text-brand-green mt-1">UMA Enterprises</p>
+      <div class="mt-4 text-sm text-gray-600">
+        <p>First Floor, Shop No-4, Real Plaza -2, 8A National Highway,</p>
+        <p>Lalpar, Morbi, Gujarat - 363642</p>
+        <p class="mt-2"><a href="mailto:vandharaagrotech@gmail.com" class="text-brand-green hover:text-brand-green-light">vandharaagrotech@gmail.com</a></p>
+        <p>+91 63592 99124</p>
+      </div>
+    </section>
+
+    <section class="mt-8">
+      <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-gold text-white font-semibold hover:bg-amber-600 transition-colors">
+        Get in Touch
+      </a>
+    </section>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Vandhara Agrotech",
+      "description": "Eco-friendly, scientifically developed fermented organic liquids for sustainable soil health",
+      "url": "https://vandharaagrotech.com",
+      "email": "vandharaagrotech@gmail.com",
+      "telephone": "+91-6359299124",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "First Floor, Shop No-4, Real Plaza -2, 8A National Highway, Lalpar",
+        "addressLocality": "Morbi",
+        "addressRegion": "Gujarat",
+        "postalCode": "363642",
+        "addressCountry": "IN"
+      },
+      "founder": { "@type": "Organization", "name": "UMA Enterprises" }
+    })} />
+  </article>
+</Layout>

@@ -12,6 +12,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^6.3.6"
+    "@astrojs/partytown": "^2.1.7",
+    "@astrojs/sitemap": "^3.7.2",
+    "@spotlightjs/astro": "^3.2.6",
+    "@tailwindcss/vite": "^4.3.0",
+    "@types/alpinejs": "^3.13.11",
+    "accessible-astro-components": "^5.2.0",
+    "alpinejs": "^3.15.12",
+    "astro": "^6.3.6",
+    "astro-seo": "^1.1.0",
+    "less": "^4.6.4",
+    "lightningcss": "^1.32.0",
+    "sass": "^1.99.0",
+    "stylus": "^0.64.0",
+    "swup": "^4.9.0",
+    "tailwindcss": "^4.3.0"
   }
 }
