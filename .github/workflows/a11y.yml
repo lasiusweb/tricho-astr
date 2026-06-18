@@ -32,11 +32,14 @@ jobs:
         run: npx wait-on http://127.0.0.1:8080 -t 60000
 
       - name: Run Lighthouse (accessibility)
+        id: lighthouse
         run: |
           npx lighthouse http://127.0.0.1:8080 \
             --chrome-flags="--no-sandbox --headless=new" \
             --only-categories=accessibility \
             --output=json --output-path=./lighthouse.json
+          score=$(jq '.categories.accessibility.score' lighthouse.json)
+          echo "score=$score" >> $GITHUB_OUTPUT
 
       - name: Run axe-core CLI
         run: npx @axe-core/cli http://127.0.0.1:8080 --save=axe.json
@@ -48,6 +51,30 @@ jobs:
           path: |
             lighthouse.json
             axe.json
+
+      - name: Fail if Lighthouse accessibility < 90%
+        run: |
+          echo "Lighthouse accessibility score: ${{ steps.lighthouse.outputs.score }}"
+          awk -v s="${{ steps.lighthouse.outputs.score }}" 'BEGIN { if (s < 0.9) { print "ACCESSIBILITY SCORE TOO LOW: " s; exit 1 } else { print "Accessibility score OK: " s; exit 0 } }'
+
+      - name: Comment PR with scores
+        uses: actions/github-script@v6
+        env:
+          LH_SCORE: ${{ steps.lighthouse.outputs.score }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const score = process.env.LH_SCORE || 'unknown';
+            const pr = context.payload.pull_request && context.payload.pull_request.number;
+            const pct = (score === 'unknown') ? 'unknown' : Math.round(Number(score) * 100) + '%';
+            if (pr) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr,
+                body: `Automated accessibility check:\n- Lighthouse accessibility: ${pct} (raw: ${score})\n- axe report: attached as artifact\n\nIf the Lighthouse score is below 90%, this job fails. Please address failures before merging.`
+              });
+            }
 
       - name: Log summary
         run: |
