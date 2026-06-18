@@ -44,6 +44,12 @@ jobs:
       - name: Run axe-core CLI
         run: npx @axe-core/cli http://127.0.0.1:8080 --save=axe.json
 
+      - name: Run pa11y (accessibility checks)
+        # Use pa11y to produce a machine-readable JSON report; do not fail the job automatically
+        run: |
+          # Install pa11y via npx and run JSON reporter; allow non-zero exit so we can still upload the artifact
+          npx pa11y http://127.0.0.1:8080 --reporter json > pa11y.json || true
+
       - name: Upload accessibility reports
         uses: actions/upload-artifact@v4
         with:
@@ -51,6 +57,7 @@ jobs:
           path: |
             lighthouse.json
             axe.json
+            pa11y.json
 
       - name: Fail if Lighthouse accessibility < 90%
         run: |
