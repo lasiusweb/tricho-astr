@@ -1,0 +1,55 @@
+name: Accessibility checks (Lighthouse & axe)
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  a11y:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Start static server
+        # Use npx to avoid adding a dev dependency; run in background
+        run: npx http-server ./dist -p 8080 --silent &
+
+      - name: Wait for server
+        run: npx wait-on http://127.0.0.1:8080 -t 60000
+
+      - name: Run Lighthouse (accessibility)
+        run: |
+          npx lighthouse http://127.0.0.1:8080 \
+            --chrome-flags="--no-sandbox --headless=new" \
+            --only-categories=accessibility \
+            --output=json --output-path=./lighthouse.json
+
+      - name: Run axe-core CLI
+        run: npx @axe-core/cli http://127.0.0.1:8080 --save=axe.json
+
+      - name: Upload accessibility reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: a11y-reports
+          path: |
+            lighthouse.json
+            axe.json
+
+      - name: Log summary
+        run: |
+          if [ -f lighthouse.json ]; then jq '.categories.accessibility.score' lighthouse.json || true; fi
+          if [ -f axe.json ]; then echo "axe.json size:" $(wc -c < axe.json) || true; fi
