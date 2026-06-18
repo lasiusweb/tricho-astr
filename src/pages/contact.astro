@@ -10,11 +10,14 @@ import Layout from "../layouts/Layout.astro";
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
       <div class="lg:col-span-2 bg-white rounded-xl border border-gray-100 p-6 sm:p-8 shadow-sm">
         <div x-data="{ type: 'farmer' }">
-          <div class="flex gap-1 bg-gray-100 rounded-lg p-1 w-fit mb-6">
+          <div class="flex gap-1 bg-gray-100 rounded-lg p-1 w-fit mb-6" role="tablist" aria-label="Contact type">
             <button
               class="px-4 py-2 rounded-md text-sm font-medium transition-colors"
               :class="type === 'farmer' ? 'bg-brand-green text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'"
               @click="type = 'farmer'"
+              :aria-pressed="type === 'farmer' ? 'true' : 'false'"
+              role="tab"
+              aria-controls="farmer-fields"
             >
               I'm a Farmer
             </button>
@@ -22,6 +25,9 @@ import Layout from "../layouts/Layout.astro";
               class="px-4 py-2 rounded-md text-sm font-medium transition-colors"
               :class="type === 'dealer' ? 'bg-brand-green text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'"
               @click="type = 'dealer'"
+              :aria-pressed="type === 'dealer' ? 'true' : 'false'"
+              role="tab"
+              aria-controls="dealer-fields"
             >
               I'm a Dealer / Distributor
             </button>
@@ -64,7 +70,7 @@ import Layout from "../layouts/Layout.astro";
               </select>
             </div>
 
-            <div x-show="type === 'farmer'" x-cloak>
+            <div id="farmer-fields" x-show="type === 'farmer'" x-cloak>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label for="crop" class="block text-sm font-medium text-gray-700 mb-1">Crop Type</label>
@@ -81,7 +87,7 @@ import Layout from "../layouts/Layout.astro";
               </div>
             </div>
 
-            <div x-show="type === 'dealer'" x-cloak>
+            <div id="dealer-fields" x-show="type === 'dealer'" x-cloak>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label for="shop" class="block text-sm font-medium text-gray-700 mb-1">Shop / Business Name *</label>

@@ -7,12 +7,15 @@ export interface Props {
 const { farmerContent, dealerContent } = Astro.props;
 ---
 
-<div x-data="{ tab: 'farmer' }" class="mb-8">
+<div x-data="{ tab: 'farmer' }" class="mb-8" role="tablist">
   <div class="flex gap-1 bg-gray-100 rounded-lg p-1 w-fit mb-6">
     <button
       class="px-4 py-2 rounded-md text-sm font-medium transition-colors"
       :class="tab === 'farmer' ? 'bg-brand-green text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'"
       @click="tab = 'farmer'"
+      :aria-pressed="tab === 'farmer' ? 'true' : 'false'"
+      role="tab"
+      aria-controls="farmer-panel"
     >
       I'm a Farmer
     </button>
@@ -20,6 +23,9 @@ const { farmerContent, dealerContent } = Astro.props;
       class="px-4 py-2 rounded-md text-sm font-medium transition-colors"
       :class="tab === 'dealer' ? 'bg-brand-green text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'"
       @click="tab = 'dealer'"
+      :aria-pressed="tab === 'dealer' ? 'true' : 'false'"
+      role="tab"
+      aria-controls="dealer-panel"
     >
       I'm a Dealer / Distributor
     </button>

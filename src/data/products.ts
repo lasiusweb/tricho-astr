@@ -2,6 +2,7 @@ export interface ProductVariant {
   size: string;
   label: string;
   image: string;
+  alt?: string;
 }
 
 export interface ProductData {
@@ -28,9 +29,9 @@ export const productList: ProductData[] = [
       "Transforms tired soil into living soil. Organic carbon + beneficial microbes deliver natural beneficial microbes consortia while building long-term fertility.",
     youtubeUrl: "",
     variants: [
-      { size: "5L", label: "5 Litre", image: "/images/products/soil-recharge-5l.jpg" },
-      { size: "20L", label: "20 Litre", image: "/images/products/soil-recharge-20l.jpg" },
-      { size: "50L", label: "50 Litre", image: "/images/products/soil-recharge-50l.jpg" },
+      { size: "5L", label: "5 Litre", image: "/images/products/soil-recharge-5l.jpg", alt: "Vandhara Soil Recharge — 5 Litre" },
+      { size: "20L", label: "20 Litre", image: "/images/products/soil-recharge-20l.jpg", alt: "Vandhara Soil Recharge — 20 Litre" },
+      { size: "50L", label: "50 Litre", image: "/images/products/soil-recharge-50l.jpg", alt: "Vandhara Soil Recharge — 50 Litre" },
     ],
   },
   {
@@ -44,9 +45,9 @@ export const productList: ProductData[] = [
       "Your crop's bodyguard. It fights root diseases, unlocks deep water & phosphorus, and boosts plant immunity — creating disease-resistant, drought-tough crops.",
     youtubeUrl: "",
     variants: [
-      { size: "5L", label: "5 Litre", image: "/images/products/root-guard-5l.jpg" },
-      { size: "20L", label: "20 Litre", image: "/images/products/root-guard-20l.jpg" },
-      { size: "50L", label: "50 Litre", image: "/images/products/root-guard-50l.jpg" },
+      { size: "5L", label: "5 Litre", image: "/images/products/root-guard-5l.jpg", alt: "Vandhara Root Guard — 5 Litre" },
+      { size: "20L", label: "20 Litre", image: "/images/products/root-guard-20l.jpg", alt: "Vandhara Root Guard — 20 Litre" },
+      { size: "50L", label: "50 Litre", image: "/images/products/root-guard-50l.jpg", alt: "Vandhara Root Guard — 50 Litre" },
     ],
   },
   {
@@ -60,9 +61,9 @@ export const productList: ProductData[] = [
       "Mineral-rich, high-performance growth regulator. Wake up lazy crops in 7 days — triggers dark green growth, thicker leaves, and faster recovery from stress or yellowing.",
     youtubeUrl: "",
     variants: [
-      { size: "5L", label: "5 Litre", image: "/images/products/agni-5l.jpg" },
-      { size: "20L", label: "20 Litre", image: "/images/products/agni-20l.jpg" },
-      { size: "50L", label: "50 Litre", image: "/images/products/agni-50l.jpg" },
+      { size: "5L", label: "5 Litre", image: "/images/products/agni-5l.jpg", alt: "Vandhara Agni — 5 Litre" },
+      { size: "20L", label: "20 Litre", image: "/images/products/agni-20l.jpg", alt: "Vandhara Agni — 20 Litre" },
+      { size: "50L", label: "50 Litre", image: "/images/products/agni-50l.jpg", alt: "Vandhara Agni — 50 Litre" },
     ],
   },
   {
@@ -76,9 +77,9 @@ export const productList: ProductData[] = [
       "Nature's pest defence system. Vandhara Vaayu restricts pests in the 1st and 2nd stages — protecting your crops without harming your family's health.",
     youtubeUrl: "",
     variants: [
-      { size: "5L", label: "5 Litre", image: "/images/products/vaayu-5l.jpg" },
-      { size: "20L", label: "20 Litre", image: "/images/products/vaayu-20l.jpg" },
-      { size: "50L", label: "50 Litre", image: "/images/products/vaayu-50l.jpg" },
+      { size: "5L", label: "5 Litre", image: "/images/products/vaayu-5l.jpg", alt: "Vandhara Vaayu — 5 Litre" },
+      { size: "20L", label: "20 Litre", image: "/images/products/vaayu-20l.jpg", alt: "Vandhara Vaayu — 20 Litre" },
+      { size: "50L", label: "50 Litre", image: "/images/products/vaayu-50l.jpg", alt: "Vandhara Vaayu — 50 Litre" },
     ],
   },
 ];

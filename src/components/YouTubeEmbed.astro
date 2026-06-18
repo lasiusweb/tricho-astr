@@ -16,6 +16,7 @@ const { youtubeUrl, productName } = Astro.props;
         src={youtubeUrl.replace("watch?v=", "embed/").replace("youtu.be/", "youtube.com/embed/")}
         title={`${productName} - Vandhara Agrotech`}
         frameborder="0"
+        loading="lazy"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       >

@@ -26,8 +26,9 @@ const { title = "Vandhara Agrotech", description = "Eco-friendly fermented organ
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body class="bg-neutral-warm text-gray-900 min-h-screen flex flex-col">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 z-50 bg-white text-brand-green px-3 py-2 rounded-md">Skip to main content</a>
     <Navigation />
-    <main class="flex-1">
+    <main id="main-content" class="flex-1" tabindex="-1">
       <slot />
     </main>
     <Footer />

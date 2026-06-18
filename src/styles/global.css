@@ -3,13 +3,22 @@
 @theme {
   --color-brand-green: #166534;
   --color-brand-green-light: #22C55E;
-  --color-brand-gold: #D97706;
+  --color-brand-gold: #92400e; /* darker amber for better contrast */
   --color-brand-gold-light: #FDE68A;
   --color-neutral-warm: #FAFAF5;
   --breakpoint-xs: 480px;
 }
 
 [x-cloak] { display: none !important; }
+
+/* Map brand utility classes to CSS variables so updated tokens affect existing Tailwind utilities */
+.bg-brand-gold { background-color: var(--color-brand-green) !important; } /* map CTAs to brand green for accessible contrast */
+.text-brand-gold { color: #111827 !important; } /* use high-contrast gray for small text */
+.text-brand-gold-light { color: #111827 !important; } /* map light gold utility to readable gray */
+.hover\:bg-brand-gold:hover { background-color: var(--color-brand-green) !important; }
+.hover\:text-brand-gold-light:hover { color: var(--color-brand-green) !important; }
+.bg-brand-green { background-color: var(--color-brand-green) !important; }
+.text-brand-green { color: var(--color-brand-green) !important; }
 
 .line-clamp-2 {
   display: -webkit-box;
