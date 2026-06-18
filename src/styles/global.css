@@ -12,11 +12,25 @@
 [x-cloak] { display: none !important; }
 
 /* Map brand utility classes to CSS variables so updated tokens affect existing Tailwind utilities */
-.bg-brand-gold { background-color: var(--color-brand-green) !important; } /* map CTAs to brand green for accessible contrast */
+/* Restore brand gold to its token value; remove temporary mapping to green.
+   Introduce semantic CTA class .btn-cta for consistent usage across components. */
+.bg-brand-gold { background-color: var(--color-brand-gold) !important; }
+.hover\:bg-brand-gold:hover { background-color: var(--color-brand-gold) !important; }
+
+/* Semantic CTA */
+.btn-cta {
+  background-color: var(--color-brand-gold) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+.btn-cta:hover {
+  /* Slightly darker hover — preserves previous amber hover feel */
+  filter: brightness(0.95);
+}
+
 .text-brand-gold { color: #111827 !important; } /* use high-contrast gray for small text */
 .text-brand-gold-light { color: #111827 !important; } /* map light gold utility to readable gray */
-.hover\:bg-brand-gold:hover { background-color: var(--color-brand-green) !important; }
-.hover\:text-brand-gold-light:hover { color: var(--color-brand-green) !important; }
+.hover\:text-brand-gold-light:hover { color: var(--color-brand-gold) !important; }
 .bg-brand-green { background-color: var(--color-brand-green) !important; }
 .text-brand-green { color: var(--color-brand-green) !important; }
 /* Ensure light-brand-green utility remains readable on white for small text */
