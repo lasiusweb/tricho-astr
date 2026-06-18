@@ -7,33 +7,37 @@ export interface Props {
 const { farmerContent, dealerContent } = Astro.props;
 ---
 
-<div x-data="{ tab: 'farmer' }" class="mb-8" role="tablist">
+<div x-data="{ tab: 'farmer' }" class="mb-8" role="tablist" aria-label="B2B / B2C toggle">
   <div class="flex gap-1 bg-gray-100 rounded-lg p-1 w-fit mb-6">
     <button
+      id="farmer-tab"
       class="px-4 py-2 rounded-md text-sm font-medium transition-colors"
       :class="tab === 'farmer' ? 'bg-brand-green text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'"
       @click="tab = 'farmer'"
-      :aria-pressed="tab === 'farmer' ? 'true' : 'false'"
+      :aria-selected="tab === 'farmer' ? 'true' : 'false'"
+      :tabindex="tab === 'farmer' ? 0 : -1"
       role="tab"
       aria-controls="farmer-panel"
     >
       I'm a Farmer
     </button>
     <button
+      id="dealer-tab"
       class="px-4 py-2 rounded-md text-sm font-medium transition-colors"
       :class="tab === 'dealer' ? 'bg-brand-green text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'"
       @click="tab = 'dealer'"
-      :aria-pressed="tab === 'dealer' ? 'true' : 'false'"
+      :aria-selected="tab === 'dealer' ? 'true' : 'false'"
+      :tabindex="tab === 'dealer' ? 0 : -1"
       role="tab"
       aria-controls="dealer-panel"
     >
       I'm a Dealer / Distributor
     </button>
   </div>
-  <div x-show="tab === 'farmer'" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
+  <div id="farmer-panel" role="tabpanel" aria-labelledby="farmer-tab" tabindex="0" x-show="tab === 'farmer'" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
     <slot name="farmer" />
   </div>
-  <div x-show="tab === 'dealer'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
+  <div id="dealer-panel" role="tabpanel" aria-labelledby="dealer-tab" tabindex="0" x-show="tab === 'dealer'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
     <slot name="dealer" />
   </div>
 </div>

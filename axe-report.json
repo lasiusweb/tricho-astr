@@ -1,0 +1,1809 @@
+[
+  {
+    "testEngine": {
+      "name": "axe-core",
+      "version": "4.11.4"
+    },
+    "testRunner": {
+      "name": "axe"
+    },
+    "testEnvironment": {
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+      "windowWidth": 764,
+      "windowHeight": 429,
+      "orientationAngle": 0,
+      "orientationType": "landscape-primary"
+    },
+    "timestamp": "2026-06-18T13:05:13.830Z",
+    "url": "http://localhost:4321/",
+    "toolOptions": {
+      "runOnly": {
+        "type": "tag",
+        "values": [
+          "wcag2aa"
+        ]
+      },
+      "reporter": "v1"
+    },
+    "inapplicable": [
+      {
+        "id": "valid-lang",
+        "impact": null,
+        "tags": [
+          "cat.language",
+          "wcag2aa",
+          "wcag312",
+          "TTv5",
+          "TT11.b",
+          "EN-301-549",
+          "EN-9.3.1.2",
+          "ACT",
+          "RGAAv4",
+          "RGAA-8.8.1"
+        ],
+        "description": "Ensure lang attributes have valid values",
+        "help": "lang attribute must have a valid value",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/valid-lang?application=webdriverjs",
+        "nodes": []
+      }
+    ],
+    "passes": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#166534",
+                  "contrastRatio": 7.13,
+                  "fontSize": "15.0pt (20px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-white\">Vandhara</span>",
+            "target": [
+              ".tracking-tight > span:nth-child(1)"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#166534",
+                  "contrastRatio": 7.13,
+                  "fontSize": "15.0pt (20px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"hidden xs:inline\">Agrotech</span>",
+            "target": [
+              ".xs\\:inline"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#206231",
+                  "contrastRatio": 7.36,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.36"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/products\" class=\"inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-brand-gold text-white font-semibold hover:bg-amber-600 transition-colors\">",
+            "target": [
+              ".inline-flex.px-6[href$=\"products\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#fafaf5",
+                  "contrastRatio": 6.81,
+                  "fontSize": "27.0pt (36px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.81"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h2 class=\"text-3xl sm:text-4xl font-bold text-brand-green\">Our Products</h2>",
+            "target": [
+              ".py-16.lg\\:py-24:nth-child(2) > .mb-12.text-center > .text-3xl.sm\\:text-4xl"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#4a5565",
+                  "bgColor": "#fafaf5",
+                  "contrastRatio": 7.21,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.21"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"mt-3 text-gray-600 text-lg max-w-2xl mx-auto\">Scientifically developed fermented organic liquids for every stage of crop growth</p>",
+            "target": [
+              ".max-w-2xl.text-lg.text-gray-600"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.13,
+                  "fontSize": "15.0pt (20px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"text-xl font-bold text-brand-green group-hover:text-brand-green-light transition-colors\">Soil Recharge</h3>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(1) > .text-xl.group-hover\\:text-brand-green-light.font-bold"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#111827",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 17.73,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 17.73"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-sm font-medium text-brand-gold mt-1\">Beneficial Microbes Consortia</p>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(1) > .text-brand-gold.mt-1.font-medium"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#4a5565",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.55,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.55"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-sm text-gray-600 mt-3 leading-relaxed\">Transforms tired soil into living soil with organic carbon + beneficial microbes.</p>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(1) > .text-gray-600.mt-3.leading-relaxed"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.13,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"mt-4 text-sm font-semibold text-brand-green-light\">Reduces chemical fertilizer use by 30-40%</p>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(1) > .mt-4.text-brand-green-light.font-semibold"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.13,
+                  "fontSize": "15.0pt (20px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"text-xl font-bold text-brand-green group-hover:text-brand-green-light transition-colors\">Root Guard</h3>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(2) > .text-xl.group-hover\\:text-brand-green-light.font-bold"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#111827",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 17.73,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 17.73"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-sm font-medium text-brand-gold mt-1\">Root Disease Shield</p>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(2) > .text-brand-gold.mt-1.font-medium"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#4a5565",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.55,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.55"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-sm text-gray-600 mt-3 leading-relaxed\">Fights root diseases, unlocks deep water &amp; phosphorus, boosts plant immunity.</p>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(2) > .text-gray-600.mt-3.leading-relaxed"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.13,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"mt-4 text-sm font-semibold text-brand-green-light\">Prevents root rot &amp; suppresses soil-borne diseases</p>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(2) > .mt-4.text-brand-green-light.font-semibold"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.13,
+                  "fontSize": "15.0pt (20px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"text-xl font-bold text-brand-green group-hover:text-brand-green-light transition-colors\">Agni</h3>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(3) > .text-xl.group-hover\\:text-brand-green-light.font-bold"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#111827",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 17.73,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 17.73"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-sm font-medium text-brand-gold mt-1\">Growth Accelerator</p>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(3) > .text-brand-gold.mt-1.font-medium"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#4a5565",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.55,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.55"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-sm text-gray-600 mt-3 leading-relaxed\">Natural growth hormones for faster growth, stress tolerance, and better yield.</p>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(3) > .text-gray-600.mt-3.leading-relaxed"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.13,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"mt-4 text-sm font-semibold text-brand-green-light\">Triggers dark green growth in 7 days</p>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(3) > .mt-4.text-brand-green-light.font-semibold"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.13,
+                  "fontSize": "15.0pt (20px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"text-xl font-bold text-brand-green group-hover:text-brand-green-light transition-colors\">Vaayu</h3>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(4) > .text-xl.group-hover\\:text-brand-green-light.font-bold"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#111827",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 17.73,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 17.73"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-sm font-medium text-brand-gold mt-1\">Nature's Pest Defence</p>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(4) > .text-brand-gold.mt-1.font-medium"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#4a5565",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.55,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.55"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-sm text-gray-600 mt-3 leading-relaxed\">Restricts pests in early stages — safe for crops, family, and environment.</p>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(4) > .text-gray-600.mt-3.leading-relaxed"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.13,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"mt-4 text-sm font-semibold text-brand-green-light\">Integrated Pest Management for all crops</p>",
+            "target": [
+              ".shadow-sm.p-6.hover\\:shadow-md:nth-child(4) > .mt-4.text-brand-green-light.font-semibold"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#fafaf5",
+                  "contrastRatio": 6.81,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 6.81"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/products\" class=\"inline-flex items-center gap-2 text-brand-green font-semibold hover:text-brand-green-light transition-colors\">",
+            "target": [
+              ".hover\\:text-brand-green-light"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.13,
+                  "fontSize": "27.0pt (36px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h2 class=\"text-3xl sm:text-4xl font-bold text-brand-green\">Our Commitment to Sustainability</h2>",
+            "target": [
+              ".py-16.lg\\:py-24:nth-child(3) > .max-w-7xl.sm\\:px-6.lg\\:px-8 > .mb-12.text-center > .text-3xl.sm\\:text-4xl"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#4a5565",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.55,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.55"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"mt-3 text-gray-600 text-lg\">Every step of our process is designed with the planet in mind</p>",
+            "target": [
+              ".py-16.lg\\:py-24:nth-child(3) > .max-w-7xl.sm\\:px-6.lg\\:px-8 > .mb-12.text-center > .text-lg.text-gray-600.mt-3"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.13,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"font-semibold text-brand-green text-sm\">Rejuvenates Soil Health</h3>",
+            "target": [
+              ".p-4.text-center:nth-child(1) > h3"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6a7282",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 4.83,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.83"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-xs text-gray-500 mt-1\">Damaged by Excessive Chemical Use</p>",
+            "target": [
+              ".p-4.text-center:nth-child(1) > .text-gray-500.mt-1.text-xs"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.13,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"font-semibold text-brand-green text-sm\">Zero Synthetic Chemicals</h3>",
+            "target": [
+              ".p-4.text-center:nth-child(2) > h3"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6a7282",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 4.83,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.83"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-xs text-gray-500 mt-1\">At Any Stage</p>",
+            "target": [
+              ".p-4.text-center:nth-child(2) > .text-gray-500.mt-1.text-xs"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.13,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"font-semibold text-brand-green text-sm\">Local Sourcing</h3>",
+            "target": [
+              ".p-4.text-center:nth-child(3) > h3"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6a7282",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 4.83,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.83"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-xs text-gray-500 mt-1\">Reduces Carbon Footprint</p>",
+            "target": [
+              ".p-4.text-center:nth-child(3) > .text-gray-500.mt-1.text-xs"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.13,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"font-semibold text-brand-green text-sm\">Upcycled</h3>",
+            "target": [
+              ".p-4.text-center:nth-child(4) > h3"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6a7282",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 4.83,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.83"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-xs text-gray-500 mt-1\">All Waste Materials Composted or Upcycled</p>",
+            "target": [
+              ".p-4.text-center:nth-child(4) > .text-gray-500.mt-1.text-xs"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#166534",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 7.13,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"font-semibold text-brand-green text-sm\">Organic Farming Principles</h3>",
+            "target": [
+              ".p-4.text-center:nth-child(5) > h3"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#6a7282",
+                  "bgColor": "#ffffff",
+                  "contrastRatio": 4.83,
+                  "fontSize": "9.0pt (12px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 4.83"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"text-xs text-gray-500 mt-1\">Align with Permaculture &amp; Organic Farming</p>",
+            "target": [
+              ".p-4.text-center:nth-child(5) > .text-gray-500.mt-1.text-xs"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#206231",
+                  "contrastRatio": 7.36,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.36"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/contact\" class=\"px-6 py-3 rounded-lg bg-brand-gold text-white font-semibold hover:bg-amber-600 transition-colors\">\nGet a Quote\n</a>",
+            "target": [
+              ".mt-6.flex-wrap.gap-4 > .px-6.py-3.bg-brand-gold"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#166534",
+                  "contrastRatio": 7.13,
+                  "fontSize": "15.0pt (20px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/\" class=\"text-xl font-bold\"> <span class=\"text-brand-gold\">Vandhara</span> Agrotech\n</a>",
+            "target": [
+              ".gap-8 > div:nth-child(1) > .text-xl.font-bold[href=\"/\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#166534",
+                  "contrastRatio": 7.13,
+                  "fontSize": "15.0pt (20px)",
+                  "fontWeight": "bold",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<span class=\"text-brand-gold\">Vandhara</span>",
+            "target": [
+              ".gap-8 > div:nth-child(1) > .text-xl.font-bold[href=\"/\"] > span"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#b9f8cf",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.9,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.9"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p class=\"mt-3 text-sm text-green-200 leading-relaxed\">\nRestoring India's soil health through eco-friendly, scientifically developed fermented organic liquids.\n</p>",
+            "target": [
+              ".mt-3.leading-relaxed.text-green-200"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#166534",
+                  "contrastRatio": 7.13,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"font-semibold text-brand-gold-light mb-4\">Quick Links</h3>",
+            "target": [
+              "div:nth-child(2) > .text-brand-gold-light.mb-4"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#b9f8cf",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.9,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.9"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/\" class=\"text-sm text-green-200 hover:text-brand-gold-light transition-colors\"> Home </a>",
+            "target": [
+              ".text-green-200.hover\\:text-brand-gold-light[href=\"/\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#b9f8cf",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.9,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.9"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/products\" class=\"text-sm text-green-200 hover:text-brand-gold-light transition-colors\"> Our Products </a>",
+            "target": [
+              ".text-green-200.hover\\:text-brand-gold-light[href$=\"products\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#b9f8cf",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.9,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.9"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/about\" class=\"text-sm text-green-200 hover:text-brand-gold-light transition-colors\"> About Us </a>",
+            "target": [
+              ".text-green-200.hover\\:text-brand-gold-light[href$=\"about\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#b9f8cf",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.9,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.9"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/sustainability\" class=\"text-sm text-green-200 hover:text-brand-gold-light transition-colors\"> Sustainability </a>",
+            "target": [
+              ".text-green-200.hover\\:text-brand-gold-light[href$=\"sustainability\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#b9f8cf",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.9,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.9"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/partner\" class=\"text-sm text-green-200 hover:text-brand-gold-light transition-colors\"> Partner with Us </a>",
+            "target": [
+              ".text-green-200.hover\\:text-brand-gold-light[href$=\"partner\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#166534",
+                  "contrastRatio": 7.13,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"font-semibold text-brand-gold-light mb-4\">Products</h3>",
+            "target": [
+              "div:nth-child(3) > .text-brand-gold-light.mb-4"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#b9f8cf",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.9,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.9"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/products/soil-recharge\" class=\"text-sm text-green-200 hover:text-brand-gold-light transition-colors\"> Soil Recharge </a>",
+            "target": [
+              "li:nth-child(1) > .text-green-200.hover\\:text-brand-gold-light[href$=\"soil-recharge\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#b9f8cf",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.9,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.9"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/products/root-guard\" class=\"text-sm text-green-200 hover:text-brand-gold-light transition-colors\"> Root Guard </a>",
+            "target": [
+              "li:nth-child(2) > .text-green-200.hover\\:text-brand-gold-light[href$=\"root-guard\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#b9f8cf",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.9,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.9"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/products/agni\" class=\"text-sm text-green-200 hover:text-brand-gold-light transition-colors\"> Agni </a>",
+            "target": [
+              "li:nth-child(3) > .text-green-200.hover\\:text-brand-gold-light[href$=\"agni\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#b9f8cf",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.9,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.9"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/products/vaayu\" class=\"text-sm text-green-200 hover:text-brand-gold-light transition-colors\"> Vaayu </a>",
+            "target": [
+              "li:nth-child(4) > .text-green-200.hover\\:text-brand-gold-light[href$=\"vaayu\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#166534",
+                  "contrastRatio": 7.13,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.13"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<h3 class=\"font-semibold text-brand-gold-light mb-4\">Contact</h3>",
+            "target": [
+              "div:nth-child(4) > .text-brand-gold-light.mb-4"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#b9f8cf",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.9,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.9"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"mailto:vandharaagrotech@gmail.com\" class=\"hover:text-brand-gold-light transition-colors\">vandharaagrotech@gmail.com</a>",
+            "target": [
+              "div:nth-child(4) > ul > li:nth-child(1) > .hover\\:text-brand-gold-light.transition-colors"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#b9f8cf",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.9,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.9"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"tel:+916359299124\" class=\"hover:text-brand-gold-light transition-colors\">+91 63592 99124</a>",
+            "target": [
+              "a[href=\"tel:+916359299124\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#b9f8cf",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.9,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.9"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<li class=\"leading-relaxed\">\nFirst Floor, Shop No-4, Real Plaza -2,<br>\n8A National Highway, Lalpar,<br>\nMorbi, Gujarat - 363642\n</li>",
+            "target": [
+              "ul > .leading-relaxed"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#7bf1a8",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.08,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.08"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<p>© 2026 Vandhara Agrotech. Manufactured &amp; Marketed by UMA Enterprises.</p>",
+            "target": [
+              ".pt-8 > p"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#7bf1a8",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.08,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.08"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/legal/privacy\" class=\"hover:text-brand-gold-light transition-colors\">Privacy Policy</a>",
+            "target": [
+              "a[href$=\"privacy\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#7bf1a8",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.08,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.08"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/legal/terms\" class=\"hover:text-brand-gold-light transition-colors\">Terms &amp; Conditions</a>",
+            "target": [
+              "a[href$=\"terms\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#7bf1a8",
+                  "bgColor": "#166534",
+                  "contrastRatio": 5.08,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.08"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/legal/refund\" class=\"hover:text-brand-gold-light transition-colors\">Refund Policy</a>",
+            "target": [
+              "a[href$=\"refund\"]"
+            ]
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "fgColor": "#ffffff",
+                  "bgColor": "#206231",
+                  "contrastRatio": 7.36,
+                  "fontSize": "10.5pt (14px)",
+                  "fontWeight": "normal",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [],
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 7.36"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<a href=\"/contact\" class=\"fixed bottom-6 right-6 z-40 flex items-center gap-2 bg-brand-gold text-white px-5 py-3 rounded-full shadow-lg hover:bg-amber-600 transition-all hover:scale-105 font-semibold text-sm\">",
+            "target": [
+              ".right-6"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "meta-viewport",
+        "impact": null,
+        "tags": [
+          "cat.sensory-and-visual-cues",
+          "wcag2aa",
+          "wcag144",
+          "EN-301-549",
+          "EN-9.1.4.4",
+          "ACT",
+          "RGAAv4",
+          "RGAA-10.4.2"
+        ],
+        "description": "Ensure <meta name=\"viewport\"> does not disable text scaling and zooming",
+        "help": "Zooming and scaling must not be disabled",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/meta-viewport?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "meta-viewport",
+                "data": null,
+                "relatedNodes": [],
+                "impact": "moderate",
+                "message": "<meta> tag does not disable zooming on mobile devices"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": null,
+            "html": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+            "target": [
+              "meta[name=\"viewport\"]"
+            ]
+          }
+        ]
+      }
+    ],
+    "incomplete": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "tags": [
+          "cat.color",
+          "wcag2aa",
+          "wcag143",
+          "TTv5",
+          "TT13.c",
+          "EN-301-549",
+          "EN-9.1.4.3",
+          "ACT",
+          "RGAAv4",
+          "RGAA-3.2.1"
+        ],
+        "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/color-contrast?application=webdriverjs",
+        "nodes": [
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "36.0pt (48px)",
+                  "fontWeight": "bold",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section class=\"relative overflow-hidden bg-gradient-to-br from-brand-green via-green-800 to-green-900 text-white\">",
+                    "target": [
+                      ".overflow-hidden"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<h1 class=\"text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight\">\nRestoring India's\n<span class=\"text-brand-gold\">Soil Health</span> </h1>",
+            "target": [
+              "h1"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "36.0pt (48px)",
+                  "fontWeight": "bold",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section class=\"relative overflow-hidden bg-gradient-to-br from-brand-green via-green-800 to-green-900 text-white\">",
+                    "target": [
+                      ".overflow-hidden"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<span class=\"text-brand-gold\">Soil Health</span>",
+            "target": [
+              "h1 > span"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "15.0pt (20px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section class=\"relative overflow-hidden bg-gradient-to-br from-brand-green via-green-800 to-green-900 text-white\">",
+                    "target": [
+                      ".overflow-hidden"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"mt-6 text-lg sm:text-xl text-green-100 leading-relaxed max-w-2xl\">\nEco-friendly, scientifically developed fermented organic liquids that blend traditional wisdom with modern microbiology. Empowering farmers to shift from synthetic inputs to regenerative soil nutrition.\n</p>",
+            "target": [
+              ".sm\\:text-xl"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<section class=\"relative overflow-hidden bg-gradient-to-br from-brand-green via-green-800 to-green-900 text-white\">",
+                    "target": [
+                      ".overflow-hidden"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<a href=\"/partner\" class=\"inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition-colors\">\nPartner with Us\n</a>",
+            "target": [
+              ".mt-8.flex-wrap.gap-4 > .border-2.border-white\\/30.hover\\:bg-white\\/10"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "22.5pt (30px)",
+                  "fontWeight": "bold",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "3:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"bg-gradient-to-r from-brand-green to-green-700 rounded-2xl p-8 sm:p-12 text-white text-center\">",
+                    "target": [
+                      ".bg-gradient-to-r"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<h2 class=\"text-2xl sm:text-3xl font-bold\">Ready to Transform Your Soil?</h2>",
+            "target": [
+              ".text-2xl"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "13.5pt (18px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"bg-gradient-to-r from-brand-green to-green-700 rounded-2xl p-8 sm:p-12 text-white text-center\">",
+                    "target": [
+                      ".bg-gradient-to-r"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<p class=\"mt-3 text-green-100 text-lg max-w-xl mx-auto\">Get in touch with our team for personalized recommendations and bulk pricing.</p>",
+            "target": [
+              ".max-w-xl"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          },
+          {
+            "any": [
+              {
+                "id": "color-contrast",
+                "data": {
+                  "contrastRatio": 0,
+                  "fontSize": "12.0pt (16px)",
+                  "fontWeight": "normal",
+                  "messageKey": "bgGradient",
+                  "expectedContrastRatio": "4.5:1"
+                },
+                "relatedNodes": [
+                  {
+                    "html": "<div class=\"bg-gradient-to-r from-brand-green to-green-700 rounded-2xl p-8 sm:p-12 text-white text-center\">",
+                    "target": [
+                      ".bg-gradient-to-r"
+                    ]
+                  }
+                ],
+                "impact": "serious",
+                "message": "Element's background color could not be determined due to a background gradient"
+              }
+            ],
+            "all": [],
+            "none": [],
+            "impact": "serious",
+            "html": "<a href=\"/products\" class=\"px-6 py-3 rounded-lg border-2 border-white/30 text-white font-semibold hover:bg-white/10 transition-colors\">\nView Products\n</a>",
+            "target": [
+              ".mt-6.flex-wrap.gap-4 > .border-2.border-white\\/30.hover\\:bg-white\\/10"
+            ],
+            "failureSummary": "Fix any of the following:\n  Element's background color could not be determined due to a background gradient"
+          }
+        ]
+      }
+    ],
+    "violations": []
+  }
+]

@@ -36,23 +36,31 @@ const links = [
           @mouseleave="productsOpen = false"
         >
           <button
+            id="products-button"
             class="flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors hover:bg-green-700/60 hover:text-brand-gold-light"
             :class="productsOpen ? 'bg-green-700/60 text-brand-gold-light' : ''"
             aria-haspopup="menu"
             :aria-expanded="productsOpen ? 'true' : 'false'"
+            aria-controls="products-menu"
+            @click="productsOpen = !productsOpen"
+            @keydown.enter.prevent="productsOpen = !productsOpen"
+            @keydown.space.prevent="productsOpen = !productsOpen"
           >
             Products
-            <svg class="w-3.5 h-3.5 transition-transform" :class="productsOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-3.5 h-3.5 transition-transform" :class="productsOpen ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
 
           <div
+            id="products-menu"
             x-show="productsOpen"
             x-cloak
             role="menu"
+            aria-labelledby="products-button"
             class="absolute right-0 mt-2 w-[500px] bg-white rounded-xl shadow-xl border border-gray-100 p-5"
             @click="productsOpen = false"
+            @keydown.escape.window="productsOpen = false"
           >
             <div class="grid grid-cols-2 gap-4">
               {productList.map((p) => (
