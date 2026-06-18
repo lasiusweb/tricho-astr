@@ -12,7 +12,7 @@ const links = [
 ];
 ---
 
-<nav class="bg-brand-green text-white sticky top-0 z-50 shadow-lg" x-data="{ open: false, productsOpen: false }">
+<nav class="bg-brand-green text-white sticky top-0 z-50 shadow-lg" x-data="{ open: false, productsOpen: false }" aria-label="Primary navigation">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <a href="/" class="flex items-center gap-2 font-bold text-xl tracking-tight shrink-0">
@@ -90,6 +90,8 @@ const links = [
       <button
         class="lg:hidden p-2 rounded-lg hover:bg-green-700/60 transition-colors"
         @click="open = !open"
+        @keydown.enter.prevent="open = !open"
+        @keydown.space.prevent="open = !open"
         aria-label="Toggle menu"
         aria-controls="mobile-menu"
         :aria-expanded="open ? 'true' : 'false'"
