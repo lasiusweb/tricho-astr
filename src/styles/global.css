@@ -19,6 +19,8 @@
 .hover\:text-brand-gold-light:hover { color: var(--color-brand-green) !important; }
 .bg-brand-green { background-color: var(--color-brand-green) !important; }
 .text-brand-green { color: var(--color-brand-green) !important; }
+/* Ensure light-brand-green utility remains readable on white for small text */
+.text-brand-green-light { color: var(--color-brand-green) !important; }
 
 .line-clamp-2 {
   display: -webkit-box;
