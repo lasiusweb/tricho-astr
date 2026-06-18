@@ -45,10 +45,23 @@ jobs:
         run: npx @axe-core/cli http://127.0.0.1:8080 --save=axe.json
 
       - name: Run pa11y (accessibility checks)
-        # Use pa11y to produce a machine-readable JSON report; do not fail the job automatically
+        # Use pa11y to produce a machine-readable JSON report
         run: |
-          # Install pa11y via npx and run JSON reporter; allow non-zero exit so we can still upload the artifact
+          # Install pa11y via npx and run JSON reporter; allow non-zero exit so the script can parse output
           npx pa11y http://127.0.0.1:8080 --reporter json > pa11y.json || true
+
+      - name: Fail on high-severity pa11y issues
+        # Count pa11y entries with type 'error' and fail if any found
+        run: |
+          if [ -f pa11y.json ]; then
+            errors=$(jq '[.[] | select(.type=="error" or .type=="Error" or .type=="ERROR")] | length' pa11y.json) || errors=0
+          else
+            echo "pa11y.json not found, skipping error check"; errors=0
+          fi
+          echo "pa11y high-severity issues: $errors"
+          if [ "$errors" -gt 0 ]; then
+            echo "Failing job due to pa11y high-severity issues"; exit 1
+          fi
 
       - name: Upload accessibility reports
         uses: actions/upload-artifact@v4
