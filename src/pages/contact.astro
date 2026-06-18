@@ -16,8 +16,8 @@ import Layout from "../layouts/Layout.astro";
               class="px-4 py-2 rounded-md text-sm font-medium transition-colors"
               :class="type === 'farmer' ? 'bg-brand-green text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'"
               @click="type = 'farmer'"
-              :aria-selected="type === 'farmer' ? 'true' : 'false'"
-              :tabindex="type === 'farmer' ? 0 : -1"
+              aria-selected="false" :aria-selected="type === 'farmer' ? 'true' : 'false'"
+              tabindex="-1" :tabindex="type === 'farmer' ? 0 : -1"
               role="tab"
               aria-controls="farmer-fields"
             >
@@ -28,8 +28,8 @@ import Layout from "../layouts/Layout.astro";
               class="px-4 py-2 rounded-md text-sm font-medium transition-colors"
               :class="type === 'dealer' ? 'bg-brand-green text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'"
               @click="type = 'dealer'"
-              :aria-selected="type === 'dealer' ? 'true' : 'false'"
-              :tabindex="type === 'dealer' ? 0 : -1"
+              aria-selected="false" :aria-selected="type === 'dealer' ? 'true' : 'false'"
+              tabindex="-1" :tabindex="type === 'dealer' ? 0 : -1"
               role="tab"
               aria-controls="dealer-fields"
             >

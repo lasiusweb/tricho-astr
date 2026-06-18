@@ -14,8 +14,8 @@ const { farmerContent, dealerContent } = Astro.props;
       class="px-4 py-2 rounded-md text-sm font-medium transition-colors"
       :class="tab === 'farmer' ? 'bg-brand-green text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'"
       @click="tab = 'farmer'"
-      :aria-selected="tab === 'farmer' ? 'true' : 'false'"
-      :tabindex="tab === 'farmer' ? 0 : -1"
+      aria-selected="false" :aria-selected="tab === 'farmer' ? 'true' : 'false'"
+      tabindex="-1" :tabindex="tab === 'farmer' ? 0 : -1"
       role="tab"
       aria-controls="farmer-panel"
     >
@@ -26,8 +26,8 @@ const { farmerContent, dealerContent } = Astro.props;
       class="px-4 py-2 rounded-md text-sm font-medium transition-colors"
       :class="tab === 'dealer' ? 'bg-brand-green text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'"
       @click="tab = 'dealer'"
-      :aria-selected="tab === 'dealer' ? 'true' : 'false'"
-      :tabindex="tab === 'dealer' ? 0 : -1"
+      aria-selected="false" :aria-selected="tab === 'dealer' ? 'true' : 'false'"
+      tabindex="-1" :tabindex="tab === 'dealer' ? 0 : -1"
       role="tab"
       aria-controls="dealer-panel"
     >
