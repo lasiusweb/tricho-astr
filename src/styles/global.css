@@ -21,6 +21,11 @@
 .text-brand-green { color: var(--color-brand-green) !important; }
 /* Ensure light-brand-green utility remains readable on white for small text */
 .text-brand-green-light { color: var(--color-brand-green) !important; }
+/* When brand-green is used as a background, ensure brand-gold text is readable (white on green) */
+.bg-brand-green .text-brand-gold,
+.bg-brand-green .text-brand-gold-light {
+  color: #ffffff !important;
+}
 
 .line-clamp-2 {
   display: -webkit-box;
