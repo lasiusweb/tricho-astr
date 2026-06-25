@@ -9,7 +9,7 @@ Astro 6.3.6 + Tailwind CSS v4 — Vandhara Agrotech website (organic fertilizer 
 | `npm run preview` | Preview production build locally |
 | `npm run astro` | Pass-through to Astro CLI |
 
-## Pages (17 total, file-based routing)
+## Pages (16 total, file-based routing)
 
 | Route | Page |
 |---|---|
@@ -48,7 +48,7 @@ Product content (variants, images, YouTube URLs) centralized in `src/data/produc
 
 ## Tailwind v4 theme (`global.css`)
 
-`@theme` custom colors: `brand-green` (#166534), `brand-green-light` (#22C55E), `brand-gold` (#D97706), `brand-gold-light` (#FDE68A), `neutral-warm` (#FAFAF5). Custom `xs` breakpoint at 480px. `x-cloak` and `line-clamp-2` utilities defined globally.
+`@theme` custom colors: `brand-green` (#166534), `brand-green-light` (#22C55E), `brand-gold` (#92400e), `brand-gold-light` (#FDE68A), `neutral-warm` (#FAFAF5). Custom `xs` breakpoint at 480px. `x-cloak` and `line-clamp-2` utilities defined globally.
 
 ## Content & contact form
 
@@ -65,7 +65,8 @@ Product content (variants, images, YouTube URLs) centralized in `src/data/produc
 - `.astro/types.d.ts` auto-generated — re-run `astro build` / `astro dev` if type errors appear.
 - `less`, `sass`, `stylus`, `lightningcss` in deps but not configured.
 - `swup`, `@astrojs/partytown`, `accessible-astro-components` in deps but not wired up.
-- **No CI, tests, linting, or formatting tooling** set up.
+- **CI**: `.github/workflows/ci.yml` runs build on PRs and pushes to master. `.github/workflows/a11y.yml` runs accessibility checks (Lighthouse, axe, pa11y) on PRs (on `fix/a11y-color-tokens` branch, merge to master when ready).
+- **No tests, linting, or formatting tooling** set up.
 - **Brochure PDF**: `public/brochures/vandhara-catalog.pdf` — manually download from Google Drive (`README.md` in that folder has the link).
 - **Social links**: placeholder `#` in Footer.astro — replace with real URLs before launch.
 - **SEO**: JSON-LD structured data on product + about + partner pages. `@astrojs/sitemap` generates `sitemap-index.xml`.
