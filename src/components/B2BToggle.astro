@@ -1,10 +1,6 @@
 ---
-export interface Props {
-  farmerContent: string;
-  dealerContent: string;
-}
-
-const { farmerContent, dealerContent } = Astro.props;
+// Content is provided via the named slots "farmer" and "dealer" — no props required.
+export interface Props {}
 ---
 
 <div x-data="{ tab: 'farmer' }" class="mb-8" role="tablist" aria-label="B2B / B2C toggle">

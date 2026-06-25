@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import B2BToggle from "../../components/B2BToggle.astro";
 import BrochureButton from "../../components/BrochureButton.astro";
+import ProductVariantGallery from "../../components/ProductVariantGallery.astro";
 import YouTubeEmbed from "../../components/YouTubeEmbed.astro";
 import { productList } from "../../data/products";
 
@@ -100,7 +101,7 @@ const product = productList.find((p) => p.slug === "agni")!;
             </li>
             <li class="flex items-start gap-3">
               <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
-              <span><strong>Packaging:</strong> 5L, 20L, 50L</span>
+              <span><strong>Packaging:</strong> {product.variants.map((v) => v.label).join(", ")}</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
@@ -153,14 +154,14 @@ const product = productList.find((p) => p.slug === "agni")!;
       "name": "Vandhara Agni",
       "description": "Growth Accelerator — natural plant growth regulator for faster growth, stress tolerance, and better yield",
       "brand": { "@type": "Brand", "name": "Vandhara Agrotech" },
-      "manufacturer": { "@type": "Organization", "name": "UMA Enterprises" },
+      "manufacturer": { "@type": "Organization", "name": "Lasius International Private Limited" },
       "category": "Natural Plant Growth Regulator",
       "applicationCategory": "Agriculture",
-      "offers": [
-        { "@type": "Offer", "name": "5 Litre Pack", "availability": "https://schema.org/InStock" },
-        { "@type": "Offer", "name": "20 Litre Pack", "availability": "https://schema.org/InStock" },
-        { "@type": "Offer", "name": "50 Litre Pack", "availability": "https://schema.org/InStock" },
-      ],
+      "offers": product.variants.map((v) => ({
+        "@type": "Offer",
+        "name": `${v.label} Pack`,
+        "availability": "https://schema.org/InStock",
+      })),
     })} />
   </article>
 </Layout>

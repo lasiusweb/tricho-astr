@@ -13,31 +13,37 @@ const placeholderColors = [
   "from-brand-gold to-amber-600",
   "from-green-700 to-green-900",
 ];
+
+// A size selector only makes sense when there is more than one pack size.
+const hasMultiple = variants.length > 1;
 ---
 
 <section class="mb-10">
   <h2 class="text-2xl font-bold text-brand-green mb-4">Available Pack Sizes</h2>
-  <div x-data={`{ selected: '${variants[0].size}' }`}>
-    <div class="flex gap-2 mb-6">
-      {variants.map((v) => (
-        <button
-          @click={`selected = '${v.size}'`}
-          class="px-5 py-2.5 rounded-lg text-sm font-semibold border-2 transition-all"
-          :class={`selected === '${v.size}' ? 'bg-brand-green text-white border-brand-green shadow-md' : 'bg-white text-gray-600 border-gray-200 hover:border-brand-green hover:text-brand-green'`}
-        >
-          {v.label}
-        </button>
-      ))}
-    </div>
+  <div x-data={hasMultiple ? `{ selected: '${variants[0].size}' }` : undefined}>
+    {hasMultiple && (
+      <div class="flex gap-2 mb-6" role="group" aria-label="Select pack size">
+        {variants.map((v) => (
+          <button
+            type="button"
+            @click={`selected = '${v.size}'`}
+            class="px-5 py-2.5 rounded-lg text-sm font-semibold border-2 transition-all"
+            :class={`selected === '${v.size}' ? 'bg-brand-green text-white border-brand-green shadow-md' : 'bg-white text-gray-600 border-gray-200 hover:border-brand-green hover:text-brand-green'`}
+          >
+            {v.label}
+          </button>
+        ))}
+      </div>
+    )}
 
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
       {variants.map((v, i) => (
         <div
-          x-show={`selected === '${v.size}'`}
-          x-cloak
-          x-transition:enter="transition ease-out duration-300"
-          x-transition:enter-start="opacity-0 scale-95"
-          x-transition:enter-end="opacity-100 scale-100"
+          x-show={hasMultiple ? `selected === '${v.size}'` : undefined}
+          x-cloak={hasMultiple ? true : undefined}
+          x-transition:enter={hasMultiple ? "transition ease-out duration-300" : undefined}
+          x-transition:enter-start={hasMultiple ? "opacity-0 scale-95" : undefined}
+          x-transition:enter-end={hasMultiple ? "opacity-100 scale-100" : undefined}
         >
           <div class="rounded-xl p-4 flex flex-col items-center justify-center min-h-[280px] shadow-md bg-white">
             {v.image ? (

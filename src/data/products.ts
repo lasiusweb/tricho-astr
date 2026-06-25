@@ -1,3 +1,14 @@
+export interface ProductVariant {
+  /** Stable identifier used for selection state, e.g. "5L". */
+  size: string;
+  /** Human-readable label shown to the user, e.g. "5 Litre". */
+  label: string;
+  /** Optional product image path (jpg/png). Falls back to a placeholder when omitted. */
+  image?: string;
+  /** Optional accessible alt text for the image. */
+  alt?: string;
+}
+
 export interface ProductData {
   slug: string;
   name: string;
@@ -9,8 +20,13 @@ export interface ProductData {
   benefit: string;
   dosage: string;
   application: string;
+  /** Available pack sizes. Currently every product ships in the 5 Litre pack only. */
+  variants: ProductVariant[];
   youtubeUrl: string;
 }
+
+/** The only pack size currently offered across the range. */
+const FIVE_LITRE: ProductVariant[] = [{ size: "5L", label: "5 Litre" }];
 
 export const productList: ProductData[] = [
   {
@@ -25,6 +41,7 @@ export const productList: ProductData[] = [
     benefit: "Reduces chemical fertilizer use by 30-40%",
     dosage: "3-5 L/acre",
     application: "Soil drench, fertigation, or broadcast",
+    variants: FIVE_LITRE,
     youtubeUrl: "",
   },
   {
@@ -39,6 +56,7 @@ export const productList: ProductData[] = [
     benefit: "Prevents root rot & suppresses soil-borne diseases",
     dosage: "3-5 L/acre",
     application: "Soil drench, fertigation, seed treatment",
+    variants: FIVE_LITRE,
     youtubeUrl: "",
   },
   {
@@ -53,6 +71,7 @@ export const productList: ProductData[] = [
     benefit: "Triggers dark green growth in 7 days",
     dosage: "2-3 L/acre (drip) / 20ml/L (foliar)",
     application: "Foliar spray or drip irrigation",
+    variants: FIVE_LITRE,
     youtubeUrl: "",
   },
   {
@@ -67,6 +86,7 @@ export const productList: ProductData[] = [
     benefit: "Restricts pests in 1st & 2nd stage",
     dosage: "3-5 L/acre",
     application: "Foliar spray or soil drench",
+    variants: FIVE_LITRE,
     youtubeUrl: "",
   },
 ];

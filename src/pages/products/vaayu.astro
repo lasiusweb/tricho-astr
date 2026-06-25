@@ -119,7 +119,7 @@ const product = productList.find((p) => p.slug === "vaayu")!;
             </li>
             <li class="flex items-start gap-3">
               <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
-              <span><strong>Packaging:</strong> 5L, 20L, 50L</span>
+              <span><strong>Packaging:</strong> {product.variants.map((v) => v.label).join(", ")}</span>
             </li>
             <li class="flex items-start gap-3">
               <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
@@ -172,14 +172,14 @@ const product = productList.find((p) => p.slug === "vaayu")!;
       "name": "Vandhara Vaayu",
       "description": "Nature's Pest Defence — organic pest repellent for Integrated Pest Management in all crops",
       "brand": { "@type": "Brand", "name": "Vandhara Agrotech" },
-      "manufacturer": { "@type": "Organization", "name": "UMA Enterprises" },
+      "manufacturer": { "@type": "Organization", "name": "Lasius International Private Limited" },
       "category": "Organic Pest Repellent",
       "applicationCategory": "Agriculture",
-      "offers": [
-        { "@type": "Offer", "name": "5 Litre Pack", "availability": "https://schema.org/InStock" },
-        { "@type": "Offer", "name": "20 Litre Pack", "availability": "https://schema.org/InStock" },
-        { "@type": "Offer", "name": "50 Litre Pack", "availability": "https://schema.org/InStock" },
-      ],
+      "offers": product.variants.map((v) => ({
+        "@type": "Offer",
+        "name": `${v.label} Pack`,
+        "availability": "https://schema.org/InStock",
+      })),
     })} />
   </article>
 </Layout>

@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# CI artifacts
+ci-artifacts/
+
 # generated types
 .astro/
 
