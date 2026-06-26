@@ -1,45 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import BrochureButton from "../../components/BrochureButton.astro";
+import { productList } from "../../data/products";
 
-const products = [
-  {
-    slug: "soil-recharge",
-    name: "Soil Recharge",
-    tagline: "Beneficial Microbes Consortia",
-    bestFor: "All field & vegetable crops needing soil revival",
-    keyBenefit: "Reduces chemical fertilizer use by 30-40%",
-    dosage: "3-5 L/acre",
-    application: "Soil drench, fertigation, or broadcast",
-  },
-  {
-    slug: "root-guard",
-    name: "Root Guard",
-    tagline: "Root Disease Shield",
-    bestFor: "Disease-prone soils & high-value crops",
-    keyBenefit: "Prevents root rot & suppresses soil-borne diseases",
-    dosage: "3-5 L/acre",
-    application: "Soil drench, fertigation, seed treatment",
-  },
-  {
-    slug: "agni",
-    name: "Agni",
-    tagline: "Growth Accelerator",
-    bestFor: "Crops with slow growth or yellowing leaves",
-    keyBenefit: "Natural growth hormones — visible results in 7 days",
-    dosage: "2-3 L/acre (drip) / 20ml/L (foliar)",
-    application: "Foliar spray or drip irrigation",
-  },
-  {
-    slug: "vaayu",
-    name: "Vaayu",
-    tagline: "Nature's Pest Defence",
-    bestFor: "Integrated Pest Management in all crops",
-    keyBenefit: "Restricts pests in 1st & 2nd stage",
-    dosage: "3-5 L/acre",
-    application: "Foliar spray or soil drench",
-  },
-];
+const products = productList.map(({ slug, name, tagline, bestFor, benefit, dosage, application }) => ({
+  slug, name, tagline, bestFor, keyBenefit: benefit, dosage, application,
+}));
 ---
 
 <Layout title="Our Products — Vandhara Agrotech | Organic Liquid Fertilizers">

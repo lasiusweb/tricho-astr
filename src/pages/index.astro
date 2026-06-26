@@ -1,36 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { productList } from "../data/products";
 
-const products = [
-  {
-    slug: "soil-recharge",
-    name: "Soil Recharge",
-    tagline: "Beneficial Microbes Consortia",
-    description: "Transforms tired soil into living soil with organic carbon + beneficial microbes.",
-    benefit: "Reduces chemical fertilizer use by 30-40%",
-  },
-  {
-    slug: "root-guard",
-    name: "Root Guard",
-    tagline: "Root Disease Shield",
-    description: "Fights root diseases, unlocks deep water & phosphorus, boosts plant immunity.",
-    benefit: "Prevents root rot & suppresses soil-borne diseases",
-  },
-  {
-    slug: "agni",
-    name: "Agni",
-    tagline: "Growth Accelerator",
-    description: "Natural growth hormones for faster growth, stress tolerance, and better yield.",
-    benefit: "Triggers dark green growth in 7 days",
-  },
-  {
-    slug: "vaayu",
-    name: "Vaayu",
-    tagline: "Nature's Pest Defence",
-    description: "Restricts pests in early stages — safe for crops, family, and environment.",
-    benefit: "Integrated Pest Management for all crops",
-  },
-];
+const products = productList.map(({ slug, name, tagline, description, benefit }) => ({
+  slug, name, tagline, description, benefit,
+}));
 
 const sustainabilityPoints = [
   { icon: "🌱", label: "Rejuvenates Soil Health", desc: "Damaged by Excessive Chemical Use" },

@@ -5,31 +5,23 @@ export interface Props {
 }
 
 const { youtubeUrl, productName } = Astro.props;
+
+// ponytail: hide entirely when no URL — no placeholder needed
+if (!youtubeUrl) return null;
 ---
 
 <section class="mb-10">
   <h2 class="text-2xl font-bold text-brand-green mb-4">Watch: {productName} in Action</h2>
-  {youtubeUrl ? (
-    <div class="relative w-full" style="padding-bottom: 56.25%">
-      <iframe
-        class="absolute top-0 left-0 w-full h-full rounded-xl shadow-md"
-        src={youtubeUrl.replace("watch?v=", "embed/").replace("youtu.be/", "youtube.com/embed/")}
-        title={`${productName} - Vandhara Agrotech`}
-        frameborder="0"
-        loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      >
-      </iframe>
-    </div>
-  ) : (
-    <div class="bg-gray-100 rounded-xl p-12 text-center border-2 border-dashed border-gray-300">
-      <svg class="w-16 h-16 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-      </svg>
-      <p class="text-gray-400 font-medium">Video Coming Soon</p>
-      <p class="text-gray-300 text-sm mt-1">A product demo video for {productName} will appear here.</p>
-      <p class="text-gray-300 text-xs mt-3">Set <code>youtubeUrl</code> in <code>src/data/products.ts</code> to activate.</p>
-    </div>
-  )}
+  <div class="relative w-full" style="padding-bottom: 56.25%">
+    <iframe
+      class="absolute top-0 left-0 w-full h-full rounded-xl shadow-md"
+      src={youtubeUrl.replace("watch?v=", "embed/").replace("youtu.be/", "youtube.com/embed/")}
+      title={`${productName} - Vandhara Agrotech`}
+      frameborder="0"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    >
+    </iframe>
+  </div>
 </section>

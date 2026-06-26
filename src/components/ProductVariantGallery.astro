@@ -14,7 +14,6 @@ const placeholderColors = [
   "from-green-700 to-green-900",
 ];
 
-// A size selector only makes sense when there is more than one pack size.
 const hasMultiple = variants.length > 1;
 ---
 
@@ -47,19 +46,12 @@ const hasMultiple = variants.length > 1;
         >
           <div class="rounded-xl p-4 flex flex-col items-center justify-center min-h-[280px] shadow-md bg-white">
             {v.image ? (
-              <picture>
-                <source type="image/webp" srcset={`${v.image.replace(/\.(jpg|png|jpeg)$/,'')}-400.webp 400w, ${v.image.replace(/\.(jpg|png|jpeg)$/,'')}-800.webp 800w, ${v.image.replace(/\.(jpg|png|jpeg)$/,'')}-1600.webp 1600w`} />
-                <img
-                  src={v.image}
-                  srcset={`${v.image.replace(/\.(jpg|png|jpeg)$/,'')}-400.jpg 400w, ${v.image.replace(/\.(jpg|png|jpeg)$/,'')}-800.jpg 800w, ${v.image.replace(/\.(jpg|png|jpeg)$/,'')}-1600.jpg 1600w`}
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                  alt={v.alt ?? `${productName} ${v.label}`}
-                  width="400"
-                  height="192"
-                  class="w-full h-48 object-contain rounded-md mb-4"
-                  loading="lazy"
-                />
-              </picture>
+              <img
+                src={v.image}
+                alt={v.alt ?? `${productName} ${v.label}`}
+                class="w-full h-48 object-contain rounded-md mb-4"
+                loading="lazy"
+              />
             ) : (
               <div class={`rounded-xl bg-gradient-to-br ${placeholderColors[i % placeholderColors.length]} p-8 flex flex-col items-center justify-center min-h-[200px] shadow-md`}>
                 <svg class="w-20 h-20 text-white/80 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">

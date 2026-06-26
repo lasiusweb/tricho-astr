@@ -3,7 +3,7 @@
 @theme {
   --color-brand-green: #166534;
   --color-brand-green-light: #22C55E;
-  --color-brand-gold: #92400e; /* darker amber for better contrast */
+  --color-brand-gold: #92400e;
   --color-brand-gold-light: #FDE68A;
   --color-neutral-warm: #FAFAF5;
   --breakpoint-xs: 480px;
@@ -11,35 +11,31 @@
 
 [x-cloak] { display: none !important; }
 
-/* Map brand utility classes to CSS variables so updated tokens affect existing Tailwind utilities */
-/* Restore brand gold to its token value; remove temporary mapping to green.
-   Introduce semantic CTA class .btn-cta for consistent usage across components. */
-.bg-brand-gold { background-color: var(--color-brand-gold) !important; }
-.hover\:bg-brand-gold:hover { background-color: var(--color-brand-gold) !important; }
+/* ponytail: these overrides exist because @theme tokens don't auto-generate
+   utilities in Tailwind v4. Remove when Tailwind handles them natively. */
+.bg-brand-gold { background-color: var(--color-brand-gold); }
+.hover\:bg-brand-gold:hover { background-color: var(--color-brand-gold); }
+.bg-brand-green { background-color: var(--color-brand-green); }
+.text-brand-green { color: var(--color-brand-green); }
+
+/* Accessibility: gold-light (#FDE68A) fails contrast on white — map to dark amber */
+.text-brand-gold { color: var(--color-brand-gold); }
+.text-brand-gold-light { color: var(--color-brand-gold); }
+.hover\:text-brand-gold-light:hover { color: var(--color-brand-gold); }
+/* green-light (#22C55E) is borderline on white — map to dark green for small text */
+.text-brand-green-light { color: var(--color-brand-green); }
+
+/* White text on green backgrounds */
+.bg-brand-green .text-brand-gold,
+.bg-brand-green .text-brand-gold-light { color: #ffffff; }
 
 /* Semantic CTA */
 .btn-cta {
-  background-color: var(--color-brand-gold) !important;
-  color: #ffffff !important;
+  background-color: var(--color-brand-gold);
+  color: #ffffff;
   font-weight: 600;
 }
-.btn-cta:hover {
-  /* Slightly darker hover — preserves previous amber hover feel */
-  filter: brightness(0.95);
-}
-
-.text-brand-gold { color: #111827 !important; } /* use high-contrast gray for small text */
-.text-brand-gold-light { color: #111827 !important; } /* map light gold utility to readable gray */
-.hover\:text-brand-gold-light:hover { color: var(--color-brand-gold) !important; }
-.bg-brand-green { background-color: var(--color-brand-green) !important; }
-.text-brand-green { color: var(--color-brand-green) !important; }
-/* Ensure light-brand-green utility remains readable on white for small text */
-.text-brand-green-light { color: var(--color-brand-green) !important; }
-/* When brand-green is used as a background, ensure brand-gold text is readable (white on green) */
-.bg-brand-green .text-brand-gold,
-.bg-brand-green .text-brand-gold-light {
-  color: #ffffff !important;
-}
+.btn-cta:hover { filter: brightness(0.95); }
 
 .line-clamp-2 {
   display: -webkit-box;
@@ -48,19 +44,8 @@
   overflow: hidden;
 }
 
-/* Focus-visible defaults: ensure visible focus for keyboard users while allowing mouse interactions to stay clean */
 :focus-visible {
- outline: none;
- box-shadow: 0 0 0 4px rgba(34,197,94,0.18);
- border-radius: 0.375rem;
-}
-/* Provide a fallback focus-visible for elements using the utility class .outline-none (avoid changing many files) */
-.outline-none:focus-visible {
- outline: none;
- box-shadow: 0 0 0 4px rgba(34,197,94,0.18);
-}
-/* Ensure interactive elements have a focus-visible ring if not otherwise styled */
-a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
- outline: none;
- box-shadow: 0 0 0 4px rgba(34,197,94,0.18);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(34,197,94,0.18);
+  border-radius: 0.375rem;
 }

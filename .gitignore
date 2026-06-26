@@ -4,11 +4,22 @@ dist/
 # CI artifacts
 ci-artifacts/
 
+# a11y/lighthouse reports
+axe-*.json
+lighthouse-*.json
+pa11y-*.json
+
 # generated types
 .astro/
 
 # dependencies
 node_modules/
+
+# wrangler local state
+.wrangler/
+
+# tool artifacts
+claude-code/
 
 # logs
 npm-debug.log*
