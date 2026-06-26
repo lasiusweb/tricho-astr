@@ -1,6 +1,6 @@
 # tricho-astr — Vandhara Agrotech
 
-Astro 6.3.6 + Tailwind CSS v4 — Vandhara Agrotech website (organic fertilizer brand).
+Astro 6.3.6 + Tailwind CSS v4 + Cloudflare adapter — Vandhara Agrotech website (organic fertilizer brand).
 
 ## Commands
 
@@ -8,6 +8,11 @@ Astro 6.3.6 + Tailwind CSS v4 — Vandhara Agrotech website (organic fertilizer 
 | `npm run build` | Production build to `dist/` |
 | `npm run preview` | Preview production build locally |
 | `npm run astro` | Pass-through to Astro CLI |
+
+Tests & linting
+- No test runner, linters, or formatting tooling set up.
+- CI runs `npm run build` only (see `.github/workflows/ci.yml`).
+- Accessibility CI (`.github/workflows/a11y.yml`) runs Lighthouse, axe, pa11y on PRs.
 
 ## Pages (16 total, file-based routing)
 
@@ -38,7 +43,7 @@ Astro 6.3.6 + Tailwind CSS v4 — Vandhara Agrotech website (organic fertilizer 
 - `WhatsAppBubble.astro` — floating WhatsApp chat button (bottom-left), links to `wa.me/916359299124`
 - `B2BToggle.astro` — Farmer/Dealer tab switcher (Alpine.js)
 - `BrochureButton.astro` — download link for `public/brochures/vandhara-catalog.pdf`
-- `ProductVariantGallery.astro` — Alpine.js pack size selector (5L/20L/50L) with placeholder images
+- `ProductVariantGallery.astro` — Alpine.js pack size selector with placeholder images
 - `YouTubeEmbed.astro` — responsive YouTube embed (placeholders until URLs provided)
 - `Layout.astro` — shared head, nav, footer, floating CTA, WhatsApp bubble
 
@@ -58,15 +63,18 @@ Product content (variants, images, YouTube URLs) centralized in `src/data/produc
 - Farmer fields: name, phone, email, product, crop, land area, current fertilizer
 - Dealer fields: name, phone, email, product, shop name, GST, village, mandal, district, state, pincode
 
+## Cloudflare deployment
+
+- **Adapter**: `@astrojs/cloudflare@13.7.0` configured in `astro.config.mjs` with `output: 'server'`
+- **Wrangler**: `wrangler@4.105.0` installed for local dev/deploy
+- **Note**: These packages are in `node_modules` but **not** in `package.json` dependencies (installed manually, not via `npm pkg`). Run `npm install` to persist them, or add explicitly: `npm pkg set dependencies.@astrojs/cloudflare="^13.7.0" dependencies.wrangler="^4.105.0"`
+
 ## Notable details
 
 - **Node >=22.12.0** required.
 - **`dist/`** (build output) and **`.astro/`** (generated types) are gitignored.
 - `.astro/types.d.ts` auto-generated — re-run `astro build` / `astro dev` if type errors appear.
-- `less`, `sass`, `stylus`, `lightningcss` in deps but not configured.
-- `swup`, `@astrojs/partytown`, `accessible-astro-components` in deps but not wired up.
-- **CI**: `.github/workflows/ci.yml` runs build on PRs and pushes to master. `.github/workflows/a11y.yml` runs accessibility checks (Lighthouse, axe, pa11y) on PRs (on `fix/a11y-color-tokens` branch, merge to master when ready).
-- **No tests, linting, or formatting tooling** set up.
+- **CI**: `.github/workflows/ci.yml` runs build on PRs and pushes to master. `.github/workflows/a11y.yml` runs accessibility checks (Lighthouse, axe, pa11y) on PRs.
 - **Brochure PDF**: `public/brochures/vandhara-catalog.pdf` — manually download from Google Drive (`README.md` in that folder has the link).
 - **Social links**: placeholder `#` in Footer.astro — replace with real URLs before launch.
 - **SEO**: JSON-LD structured data on product + about + partner pages. `@astrojs/sitemap` generates `sitemap-index.xml`.
