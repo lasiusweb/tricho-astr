@@ -7,11 +7,11 @@ const products = productList.map(({ slug, name, tagline, description, benefit })
 }));
 
 const sustainabilityPoints = [
-  { icon: "🌱", label: "Rejuvenates Soil Health", desc: "Damaged by Excessive Chemical Use" },
-  { icon: "🧪", label: "Zero Synthetic Chemicals", desc: "At Any Stage" },
-  { icon: "🌍", label: "Local Sourcing", desc: "Reduces Carbon Footprint" },
-  { icon: "♻️", label: "Upcycled", desc: "All Waste Materials Composted or Upcycled" },
-  { icon: "🌿", label: "Organic Farming Principles", desc: "Align with Permaculture & Organic Farming" },
+  { icon: "leaf", label: "Rejuvenates Soil Health", desc: "Damaged by Excessive Chemical Use" },
+  { icon: "flask", label: "Zero Synthetic Chemicals", desc: "At Any Stage" },
+  { icon: "globe", label: "Local Sourcing", desc: "Reduces Carbon Footprint" },
+  { icon: "recycle", label: "Upcycled", desc: "All Waste Materials Composted or Upcycled" },
+  { icon: "sprout", label: "Organic Farming Principles", desc: "Align with Permaculture & Organic Farming" },
 ];
 ---
 
@@ -74,7 +74,13 @@ const sustainabilityPoints = [
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
         {sustainabilityPoints.map((s) => (
           <div class="text-center p-4">
-            <div class="text-4xl mb-3">{s.icon}</div>
+            <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-brand-green/10 flex items-center justify-center">
+              {s.icon === "leaf" && <svg class="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>}
+              {s.icon === "flask" && <svg class="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
+              {s.icon === "globe" && <svg class="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
+              {s.icon === "recycle" && <svg class="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>}
+              {s.icon === "sprout" && <svg class="w-6 h-6 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>}
+            </div>
             <h3 class="font-semibold text-brand-green text-sm">{s.label}</h3>
             <p class="text-xs text-gray-500 mt-1">{s.desc}</p>
           </div>
