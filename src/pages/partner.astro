@@ -11,12 +11,12 @@ const audiences = [
 ];
 
 const benefits = [
-  { icon: "📈", title: "Growing Market", desc: "Organic input market in India is growing at 20%+ annually. Be part of the shift." },
-  { icon: "🏭", title: "Direct from Manufacturer", desc: "Manufactured by Lasius International Private Limited — no middlemen, better margins." },
-  { icon: "📦", title: "Convenient Pack Size", desc: "Ready-to-sell 5 Litre packs that suit every customer segment." },
-  { icon: "🎓", title: "Training & Support", desc: "Product training, farmer demo support, and marketing materials provided." },
-  { icon: "🌍", title: "Expanding to South India", desc: "Active recruitment in Karnataka, Tamil Nadu, Andhra, Telangana, Kerala." },
-  { icon: "✅", title: "FCO & NPOP Certified", desc: "Full regulatory compliance. Sell with confidence." },
+  { icon: "trending", title: "Growing Market", desc: "Organic input market in India is growing at 20%+ annually. Be part of the shift." },
+  { icon: "factory", title: "Direct from Manufacturer", desc: "Manufactured by Lasius International Private Limited — no middlemen, better margins." },
+  { icon: "package", title: "Convenient Pack Size", desc: "Ready-to-sell 5 Litre packs that suit every customer segment." },
+  { icon: "cap", title: "Training & Support", desc: "Product training, farmer demo support, and marketing materials provided." },
+  { icon: "globe", title: "Expanding to South India", desc: "Active recruitment in Karnataka, Tamil Nadu, Andhra, Telangana, Kerala." },
+  { icon: "check", title: "FCO & NPOP Certified", desc: "Full regulatory compliance. Sell with confidence." },
 ];
 ---
 
@@ -44,15 +44,22 @@ const benefits = [
     <section class="mb-12">
       <h2 class="text-2xl font-bold text-brand-green mb-6">Why Partner with Us</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {benefits.map((b) => (
-          <div class="flex gap-4">
-            <span class="text-3xl shrink-0">{b.icon}</span>
-            <div>
-              <h3 class="font-semibold text-brand-green">{b.title}</h3>
-              <p class="text-sm text-gray-600 mt-1">{b.desc}</p>
-            </div>
-          </div>
-        ))}
+{benefits.map((b) => (
+  <div class="flex gap-4">
+    <div class="w-10 h-10 shrink-0 rounded-full bg-brand-green/10 flex items-center justify-center">
+      {b.icon === "trending" && <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>}
+      {b.icon === "factory" && <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>}
+      {b.icon === "package" && <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>}
+      {b.icon === "cap" && <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" /></svg>}
+      {b.icon === "globe" && <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
+      {b.icon === "check" && <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>}
+    </div>
+    <div>
+      <h3 class="font-semibold text-brand-green">{b.title}</h3>
+      <p class="text-sm text-gray-600 mt-1">{b.desc}</p>
+    </div>
+  </div>
+))}
       </div>
     </section>
 
