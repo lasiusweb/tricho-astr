@@ -2,5 +2,5 @@
 
 ## Task List
 
-[ ] *Start your mission by creating a task list
+- [x] Create deploy.yml workflow | verified | evidence: build passes, YAML valid, static output correct
 
