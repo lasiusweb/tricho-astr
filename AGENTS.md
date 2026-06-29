@@ -1,6 +1,6 @@
 # tricho-astr — Vandhara Agrotech
 
-Astro 6.3.6 + Tailwind CSS v4 + Cloudflare adapter — Vandhara Agrotech website (organic fertilizer brand).
+Astro 6.3.6 + Tailwind CSS v4 + Cloudflare Pages — Vandhara Agrotech website (organic fertilizer brand).
 
 ## Commands
 
@@ -63,11 +63,13 @@ Product content (variants, images, YouTube URLs) centralized in `src/data/produc
 - Farmer fields: name, phone, email, product, crop, land area, current fertilizer
 - Dealer fields: name, phone, email, product, shop name, GST, village, mandal, district, state, pincode
 
-## Cloudflare deployment
+## Cloudflare Pages deployment
 
-- **Adapter**: `@astrojs/cloudflare@13.7.0` configured in `astro.config.mjs` with `output: 'server'`
-- **Wrangler**: `wrangler@4.105.0` installed for local dev/deploy
-- **Note**: These packages are in `node_modules` but **not** in `package.json` dependencies (installed manually, not via `npm pkg`). Run `npm install` to persist them, or add explicitly: `npm pkg set dependencies.@astrojs/cloudflare="^13.7.0" dependencies.wrangler="^4.105.0"`
+- **Output**: `output: 'static'` in `astro.config.mjs` — all 17 pages pre-rendered to `dist/`
+- **Deploy workflow**: `.github/workflows/deploy.yml` deploys `dist/` to Cloudflare Pages via `wrangler-action@v3`
+- **Required repo secrets**: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
+- **Manual deploy**: `npx wrangler pages deploy dist --project-name=tricho-astr`
+- **Note**: `vite` is pinned to `^7.3.6` in `package.json` to avoid Vite 8/Rolldown incompatibility with `@tailwindcss/vite`
 
 ## Notable details
 
