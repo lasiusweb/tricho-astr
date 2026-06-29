@@ -66,7 +66,7 @@ Product content (variants, images, YouTube URLs) centralized in `src/data/produc
 ## Cloudflare Pages deployment
 
 - **Output**: `output: 'static'` in `astro.config.mjs` — all 17 pages pre-rendered to `dist/`
-- **Deploy workflow**: `.github/workflows/deploy.yml` deploys `dist/` to Cloudflare Pages via `wrangler-action@v3`
+- **Deploy workflow**: `.github/workflows/deploy.yml` deploys `dist/` to Cloudflare Pages via `npx wrangler pages deploy`
 - **Required repo secrets**: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
 - **Manual deploy**: `npx wrangler pages deploy dist --project-name=tricho-astr`
 - **Note**: `vite` is pinned to `^7.3.6` in `package.json` to avoid Vite 8/Rolldown incompatibility with `@tailwindcss/vite`
