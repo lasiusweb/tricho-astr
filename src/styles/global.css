@@ -17,6 +17,7 @@
 .hover\:bg-brand-gold:hover { background-color: var(--color-brand-gold); }
 .bg-brand-green { background-color: var(--color-brand-green); }
 .text-brand-green { color: var(--color-brand-green); }
+.bg-neutral-warm { background-color: var(--color-neutral-warm); }
 
 /* Accessibility: gold-light (#FDE68A) fails contrast on white — map to dark amber */
 .text-brand-gold { color: var(--color-brand-gold); }

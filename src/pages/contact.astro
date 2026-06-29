@@ -52,7 +52,7 @@ import Layout from "../layouts/Layout.astro";
             method="POST"
             class="space-y-4"
             @submit="submitting = true"
-            x-transition
+            x-transition>
             <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY" />
             <input type="hidden" name="subject" x-bind:value="'Vandhara Quote - ' + type" />
             <input type="hidden" name="from_name" value="Vandhara Agrotech Website" />
