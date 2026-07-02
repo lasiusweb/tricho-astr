@@ -21,7 +21,7 @@ Tests & linting
 - Framework: Astro v6. Pages are file-based under `src/pages/` (including `src/pages/products/*`, `blog`, `legal`, etc.).
 - Layout & composition: `src/layouts/Layout.astro` wraps pages and includes `Navigation`, `Footer`, `FloatingCTA`, and `WhatsAppBubble` components.
 - Product model: canonical product data lives in `src/data/products.ts` and is the single source of truth for product pages, galleries and YouTube embeds. Updating product metadata here updates all product pages.
-- Components: key UI pieces are in `src/components/` — notable ones: `Navigation.astro`, `Footer.astro`, `B2BToggle.astro`, `ProductVariantGallery.astro`, `BrochureButton.astro`, `YouTubeEmbed.astro`.
+- Components: key UI pieces are in `src/components/` — notable ones: `Navigation.astro`, `Footer.astro`, `B2BToggle.astro`, `BrochureButton.astro`.
 - Assets: public static assets live under `public/` (images under `public/images/products/`, brochure at `public/brochures/vandhara-catalog.pdf`).
 - Styles: Tailwind v4 theme and a few utilities are defined in `src/styles/global.css` (`@theme` custom colors, `xs` breakpoint at 480px, `x-cloak`, `line-clamp-2`).
 - Forms: contact form posts to Web3Forms API in `src/pages/contact.astro` — set `access_key` there.
@@ -31,7 +31,7 @@ Tests & linting
 ## Repo-specific conventions and patterns
 - B2B/B2C toggle: Product pages and contact form use Alpine.js (`x-data`, `x-show`, `x-cloak`) for view toggles. Copilot should prefer editing product data or Alpine bindings rather than creating parallel state logic.
 - Single source for product UI: product pages read from `src/data/products.ts`. Do not duplicate product metadata in page files.
-- Media activation: galleries and videos are conditional — set `youtubeUrl` in `products.ts` and add images to `public/images/products/` to enable them.
+- Product pages: a single `src/pages/products/[slug].astro` renders all 4 products from `src/data/products.ts`. Add images to `public/images/products/` and a `youtubeUrl` field to enable media.
 - Brochure: brochure download expects `public/brochures/vandhara-catalog.pdf`. Keep filename/path or update `BrochureButton.astro` accordingly when replacing the file.
 - Placeholders to replace before launch: Footer social links are `#` placeholders; replace with real URLs.
 - Node version: project requires Node >= 22.12.0 (see package.json engines).

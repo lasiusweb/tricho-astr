@@ -3,33 +3,77 @@ import Layout from "../../layouts/Layout.astro";
 import { posts } from "../../data/posts";
 ---
 
-<Layout title="Learning Center — Vandhara Agrotech Blog | Organic Farming Tips">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-    <h1 class="text-3xl sm:text-4xl font-bold text-brand-green mb-4">Learning Center</h1>
-    <p class="text-lg text-gray-600 mb-10">Insights, tips, and stories about organic farming, soil health, and sustainable agriculture.</p>
+<Layout title="Learning Center — Vandhara Agrotech Blog | Organic Farming Tips" description="Read about soil health, organic farming, regenerative agriculture, and CBG biogas from Vandhara Agrotech. Tips for farmers switching to sustainable inputs.">
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-green via-green-800 to-brand-green-dark text-white">
+    <div class="hero-glow-1" aria-hidden="true" />
+    <div class="hero-glow-2" aria-hidden="true" />
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-10">
+      <div class="reveal">
+        <p class="text-amber-300 font-semibold text-sm tracking-[0.2em] uppercase mb-4">Learning Center</p>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">Insights for Sustainable Farming</h1>
+        <p class="mt-4 text-lg text-white/75 leading-relaxed max-w-2xl">Practical guides, success stories, and expert tips on organic farming, soil health, and regenerative agriculture.</p>
+      </div>
+    </div>
+  </section>
 
-    {posts.length > 0 ? (
-      <div class="space-y-6">
-        {posts.map((post) => (
-          <article class="bg-white rounded-xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow">
-            <a href={`/blog/${post.slug}`} class="block">
-              <time class="text-xs text-gray-400">{post.date}</time>
-              <h2 class="text-xl font-bold text-brand-green mt-1 hover:text-brand-green-light transition-colors">{post.title}</h2>
-              <p class="text-gray-600 mt-2 text-sm leading-relaxed">{post.excerpt}</p>
-              <div class="mt-3 flex flex-wrap gap-2">
-                {post.tags.map((tag) => (
-                  <span class="text-xs bg-green-50 text-brand-green px-2.5 py-1 rounded-full">{tag}</span>
-                ))}
-              </div>
-            </a>
-          </article>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20 mb-12">
+    <div x-data="{ activeTag: '' }">
+      <div class="flex flex-wrap gap-2 mb-8">
+        <button
+          class="text-xs font-semibold px-3 py-1.5 rounded-full transition-colors"
+          :class="activeTag === '' ? 'bg-brand-green text-white' : 'bg-white text-gray-600 border border-gray-200 hover:border-brand-green'"
+          @click="activeTag = ''"
+        >All</button>
+        {[...new Set(posts.flatMap((p) => p.tags))].sort().map((tag) => (
+          <button
+            class="text-xs font-semibold px-3 py-1.5 rounded-full transition-colors"
+            :class="activeTag === '${tag}' ? 'bg-brand-green text-white' : 'bg-white text-gray-600 border border-gray-200 hover:border-brand-green'"
+            @click="activeTag = '${tag}'"
+          >{tag}</button>
         ))}
       </div>
-    ) : (
-      <div class="text-center py-20">
-        <p class="text-gray-500 text-lg">Coming soon — we're writing helpful articles about organic farming and soil health.</p>
-        <p class="text-gray-400 text-sm mt-2">Check back soon!</p>
+
+      <div class="space-y-6">
+        {posts.length > 0 ? (
+          posts.map((post) => (
+            <article
+              class="bg-white rounded-xl border border-gray-100 shadow-sm hover:card-lift transition-all overflow-hidden"
+              x-show="!activeTag || ${JSON.stringify(post.tags)}.includes(activeTag)"
+            >
+              <a href={`/blog/${post.slug}`} class="block sm:flex">
+                {post.image ? (
+                  <div class="sm:w-48 shrink-0 bg-gradient-to-br from-green-50 to-emerald-100">
+                    <img src={post.image} alt={post.title} class="w-full h-48 sm:h-full object-cover" loading="lazy" />
+                  </div>
+                ) : (
+                  <div class="sm:w-48 shrink-0 bg-gradient-to-br from-brand-green/5 to-brand-green/10 flex items-center justify-center h-48 sm:h-auto">
+                    <svg class="w-12 h-12 text-brand-green/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                  </div>
+                )}
+                <div class="p-6 flex-1">
+                  <div class="flex flex-wrap items-center gap-3 text-xs text-gray-400">
+                    <time>{post.date}</time>
+                    <span class="text-gray-300">|</span>
+                    <span>{post.readingTime}</span>
+                  </div>
+                  <h2 class="text-xl font-bold text-brand-green mt-1 hover:text-brand-green-light transition-colors">{post.title}</h2>
+                  <p class="text-gray-600 mt-2 text-sm leading-relaxed">{post.excerpt}</p>
+                  <div class="mt-3 flex flex-wrap gap-2">
+                    {post.tags.map((tag) => (
+                      <span class="text-xs bg-green-50 text-brand-green px-2.5 py-1 rounded-full">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </a>
+            </article>
+          ))
+        ) : (
+          <div class="text-center py-20">
+            <p class="text-gray-500 text-lg">Coming soon — we're writing helpful articles about organic farming and soil health.</p>
+            <p class="text-gray-400 text-sm mt-2">Check back soon!</p>
+          </div>
+        )}
       </div>
-    )}
+    </div>
   </div>
 </Layout>

@@ -20,20 +20,43 @@ const benefits = [
 ];
 ---
 
-<Layout title="Partner with Us — Vandhara Agrotech | Distributor & Dealer Opportunities">
-  <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-    <div class="max-w-3xl mb-12">
-      <h1 class="text-3xl sm:text-4xl font-bold text-brand-green mb-4">Partner with Vandhara Agrotech</h1>
-      <p class="text-lg text-gray-600 leading-relaxed">
-        We're building a strong distribution network across India. Whether you're a wholesaler, dealer, FPO, or distributor — let's grow together.
-      </p>
+<Layout title="Partner with Us — Vandhara Agrotech | Distributor & Dealer Opportunities" description="Become a Vandhara Agrotech dealer or distributor. Exclusive territories, training support, and FCO/NPOP certified organic products. Expanding across South India.">
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-green via-green-800 to-brand-green-dark text-white">
+    <div class="hero-glow-1" aria-hidden="true" />
+    <div class="hero-glow-2" aria-hidden="true" />
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-10">
+      <div class="reveal">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">Partner with Vandhara Agrotech</h1>
+        <p class="mt-4 text-lg text-white/75 leading-relaxed max-w-2xl">We're building a strong distribution network across India. Whether you're a wholesaler, dealer, FPO, or distributor — let's grow together.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20 mb-12">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
+      <div class="bg-white rounded-xl border border-gray-100 p-5 text-center shadow-sm reveal reveal-delay-1">
+        <div class="text-3xl font-bold text-brand-green"><span data-target="20">0</span>%+</div>
+        <div class="text-sm text-gray-500 mt-1">Market Growth</div>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-100 p-5 text-center shadow-sm reveal reveal-delay-2">
+        <div class="text-3xl font-bold text-brand-green"><span data-target="5000">0</span>+</div>
+        <div class="text-sm text-gray-500 mt-1">Farmers Reached</div>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-100 p-5 text-center shadow-sm reveal reveal-delay-3">
+        <div class="text-3xl font-bold text-brand-green"><span data-target="4">0</span></div>
+        <div class="text-sm text-gray-500 mt-1">Products</div>
+      </div>
+      <div class="bg-white rounded-xl border border-gray-100 p-5 text-center shadow-sm reveal reveal-delay-3">
+        <div class="text-3xl font-bold text-brand-green"><span data-target="5">0</span></div>
+        <div class="text-sm text-gray-500 mt-1">States Expanding</div>
+      </div>
     </div>
 
-    <section class="mb-12">
+    <section class="mb-12 reveal">
       <h2 class="text-2xl font-bold text-brand-green mb-6">Who We Work With</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {audiences.map((a) => (
-          <div class="bg-white rounded-xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
+          <div class="bg-white rounded-xl border border-gray-100 p-5 shadow-sm hover:card-lift transition-all">
             <h3 class="font-bold text-brand-green">{a.title}</h3>
             <p class="text-sm text-gray-600 mt-2 leading-relaxed">{a.desc}</p>
           </div>
@@ -41,7 +64,7 @@ const benefits = [
       </div>
     </section>
 
-    <section class="mb-12">
+    <section class="mb-12 reveal">
       <h2 class="text-2xl font-bold text-brand-green mb-6">Why Partner with Us</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 {benefits.map((b) => (
@@ -63,38 +86,38 @@ const benefits = [
       </div>
     </section>
 
-    <section class="bg-green-50 rounded-xl p-6 sm:p-8 mb-12">
+    <section class="bg-green-50 rounded-xl p-6 sm:p-8 mb-12 reveal">
       <h2 class="text-2xl font-bold text-brand-green mb-4">Our Product Range for Partners</h2>
       <div class="overflow-x-auto">
-        <table class="w-full text-sm">
+        <table class="w-full text-sm min-w-[600px]">
           <thead>
             <tr class="bg-brand-green text-white">
-              <th class="text-left p-3 font-semibold">Product</th>
-              <th class="text-left p-3 font-semibold">Category</th>
-              <th class="text-left p-3 font-semibold">Pack Sizes</th>
-              <th class="text-left p-3 font-semibold">Target Audience</th>
+              <th class="text-left p-3 font-semibold sticky top-0 bg-brand-green z-10">Product</th>
+              <th class="text-left p-3 font-semibold sticky top-0 bg-brand-green z-10">Category</th>
+              <th class="text-left p-3 font-semibold sticky top-0 bg-brand-green z-10">Pack Sizes</th>
+              <th class="text-left p-3 font-semibold sticky top-0 bg-brand-green z-10">Target Audience</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="bg-white">
+            <tr class="bg-white hover:bg-green-50 transition-colors">
               <td class="p-3 font-semibold text-brand-green">Soil Recharge</td>
               <td class="p-3 text-gray-600">Liquid Organic Manure</td>
               <td class="p-3 text-gray-600">5L</td>
               <td class="p-3 text-gray-600">All farmers</td>
             </tr>
-            <tr class="bg-gray-50">
+            <tr class="bg-gray-50 hover:bg-green-50 transition-colors">
               <td class="p-3 font-semibold text-brand-green">Root Guard</td>
               <td class="p-3 text-gray-600">Root Protectant</td>
               <td class="p-3 text-gray-600">5L</td>
               <td class="p-3 text-gray-600">High-value crop growers</td>
             </tr>
-            <tr class="bg-white">
+            <tr class="bg-white hover:bg-green-50 transition-colors">
               <td class="p-3 font-semibold text-brand-green">Agni</td>
               <td class="p-3 text-gray-600">Growth Regulator</td>
               <td class="p-3 text-gray-600">5L</td>
               <td class="p-3 text-gray-600">Paddy, vegetable growers</td>
             </tr>
-            <tr class="bg-gray-50">
+            <tr class="bg-gray-50 hover:bg-green-50 transition-colors">
               <td class="p-3 font-semibold text-brand-green">Vaayu</td>
               <td class="p-3 text-gray-600">Pest Repellent</td>
               <td class="p-3 text-gray-600">5L</td>
@@ -105,7 +128,7 @@ const benefits = [
       </div>
     </section>
 
-    <div class="flex flex-wrap gap-4">
+    <div class="flex flex-wrap gap-4 reveal">
       <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg btn-cta hover:bg-amber-600 transition-colors">
         Become a Partner
       </a>
@@ -120,5 +143,5 @@ const benefits = [
       "brand": { "@type": "Brand", "name": "Vandhara Agrotech" },
       "offers": { "@type": "Offer", "availability": "https://schema.org/InStock" }
     })} />
-  </article>
+  </div>
 </Layout>

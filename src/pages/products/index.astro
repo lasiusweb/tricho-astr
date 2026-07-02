@@ -3,60 +3,77 @@ import Layout from "../../layouts/Layout.astro";
 import BrochureButton from "../../components/BrochureButton.astro";
 import { productList } from "../../data/products";
 
-const products = productList.map(({ slug, name, tagline, bestFor, benefit, dosage, application }) => ({
-  slug, name, tagline, bestFor, keyBenefit: benefit, dosage, application,
-}));
+const categoryColors: Record<string, string> = {
+  "Soil Health": "bg-emerald-100 text-emerald-700",
+  "Root Health": "bg-cyan-100 text-cyan-700",
+  "Growth": "bg-amber-100 text-amber-700",
+  "Pest Control": "bg-rose-100 text-rose-700",
+};
 ---
 
-<Layout title="Our Products — Vandhara Agrotech | Organic Liquid Fertilizers">
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
-    <div class="text-center mb-12">
-      <h1 class="text-3xl sm:text-4xl font-bold text-brand-green">Our Products</h1>
-      <p class="mt-3 text-gray-600 text-lg max-w-2xl mx-auto">
-        Scientifically developed fermented organic liquids for complete crop nutrition and protection
-      </p>
+<Layout title="Our Products — Vandhara Agrotech | Organic Liquid Fertilizers" description="Compare Vandhara's 4 fermented organic products: Soil Recharge (microbes consortia), Root Guard (root disease shield), Agni (growth accelerator), Vaayu (pest defence).">
+  <section class="relative overflow-hidden bg-gradient-to-b from-brand-green via-green-800 to-brand-green-dark text-white">
+    <div class="hero-glow-1" aria-hidden="true" />
+    <div class="hero-glow-2" aria-hidden="true" />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 relative z-10">
+      <div class="max-w-3xl reveal">
+        <p class="text-amber-300 font-semibold text-sm tracking-[0.2em] uppercase mb-4">Product Range</p>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">Our Products</h1>
+        <p class="mt-4 text-lg text-white/75 leading-relaxed">Scientifically developed fermented organic liquids for complete crop nutrition and protection</p>
+      </div>
     </div>
+  </section>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-      {products.map((p) => (
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {productList.map((p) => (
         <a
           href={`/products/${p.slug}`}
-          class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md hover:border-brand-green-light/30 transition-all group"
+          class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden hover:card-lift hover:border-brand-green-light/30 transition-all group"
         >
-          <h2 class="text-xl font-bold text-brand-green group-hover:text-brand-green-light transition-colors">{p.name}</h2>
-          <p class="text-sm font-medium text-brand-gold mt-1">{p.tagline}</p>
-          <p class="text-sm text-gray-500 mt-1"><span class="font-medium">Best for:</span> {p.bestFor}</p>
-          <p class="text-sm text-gray-700 mt-3 leading-relaxed">{p.keyBenefit}</p>
-          <div class="mt-4 flex flex-wrap gap-4 text-xs text-gray-500">
-            <span>Dosage: {p.dosage}</span>
-            <span>Method: {p.application}</span>
+          {p.image && (
+            <div class="aspect-[2/1] bg-gradient-to-br from-green-50 to-emerald-100 overflow-hidden">
+              <img src={p.image} alt={p.name} class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+            </div>
+          )}
+          <div class="p-6">
+            <span class={`inline-block text-xs font-semibold px-2.5 py-1 rounded-full ${categoryColors[p.category] ?? "bg-gray-100 text-gray-700"}`}>{p.category}</span>
+            <h2 class="text-xl font-bold text-brand-green mt-2 group-hover:text-brand-green-light transition-colors">{p.name}</h2>
+            <p class="text-sm font-medium text-brand-gold mt-1">{p.tagline}</p>
+            <p class="text-sm text-gray-600 mt-3 leading-relaxed line-clamp-2">{p.description}</p>
+            <div class="mt-4 flex items-center gap-4 text-xs text-gray-500">
+              <span>Dosage: {p.dosage}</span>
+              <span>Method: {p.application}</span>
+            </div>
           </div>
         </a>
       ))}
     </div>
+  </section>
 
-    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-10">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
       <div class="p-6 sm:p-8">
         <h2 class="text-2xl font-bold text-brand-green mb-6">Compare All Products</h2>
         <div class="overflow-x-auto">
-          <table class="w-full text-sm">
+          <table class="w-full text-sm min-w-[600px]">
             <thead>
               <tr class="bg-brand-green text-white">
-                <th class="text-left p-3 font-semibold">Product</th>
-                <th class="text-left p-3 font-semibold">Best For</th>
-                <th class="text-left p-3 font-semibold">Key Benefit</th>
-                <th class="text-left p-3 font-semibold">Dosage / Acre</th>
-                <th class="text-left p-3 font-semibold">Application</th>
+                <th class="text-left p-3 font-semibold sticky top-0 bg-brand-green z-10">Product</th>
+                <th class="text-left p-3 font-semibold sticky top-0 bg-brand-green z-10">Best For</th>
+                <th class="text-left p-3 font-semibold sticky top-0 bg-brand-green z-10">Key Benefit</th>
+                <th class="text-left p-3 font-semibold sticky top-0 bg-brand-green z-10">Dosage / Acre</th>
+                <th class="text-left p-3 font-semibold sticky top-0 bg-brand-green z-10">Application</th>
               </tr>
             </thead>
             <tbody>
-              {products.map((p, i) => (
-                <tr class={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
+              {productList.map((p, i) => (
+                <tr class={`${i % 2 === 0 ? "bg-gray-50" : "bg-white"} hover:bg-green-50 transition-colors`}>
                   <td class="p-3 font-semibold text-brand-green">
                     <a href={`/products/${p.slug}`} class="hover:text-brand-green-light transition-colors">{p.name}</a>
                   </td>
                   <td class="p-3 text-gray-600">{p.bestFor}</td>
-                  <td class="p-3 text-gray-700">{p.keyBenefit}</td>
+                  <td class="p-3 text-gray-700">{p.benefit}</td>
                   <td class="p-3 text-gray-600">{p.dosage}</td>
                   <td class="p-3 text-gray-600">{p.application}</td>
                 </tr>
@@ -66,7 +83,9 @@ const products = productList.map(({ slug, name, tagline, bestFor, benefit, dosag
         </div>
       </div>
     </div>
+  </section>
 
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
     <div class="flex flex-wrap items-center justify-between gap-4 bg-gradient-to-r from-brand-green to-green-700 rounded-xl p-6 sm:p-8 text-white">
       <div>
         <h3 class="text-xl font-bold">Need detailed information?</h3>

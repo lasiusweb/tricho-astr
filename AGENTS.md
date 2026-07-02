@@ -43,13 +43,11 @@ Tests & linting
 - `WhatsAppBubble.astro` — floating WhatsApp chat button (bottom-left), links to `wa.me/916359299124`
 - `B2BToggle.astro` — Farmer/Dealer tab switcher (Alpine.js)
 - `BrochureButton.astro` — download link for `public/brochures/vandhara-catalog.pdf`
-- `ProductVariantGallery.astro` — Alpine.js pack size selector with placeholder images
-- `YouTubeEmbed.astro` — responsive YouTube embed (placeholders until URLs provided)
 - `Layout.astro` — shared head, nav, footer, floating CTA, WhatsApp bubble
 
 ## Product data
 
-Product content (variants, images, YouTube URLs) centralized in `src/data/products.ts`. Set `youtubeUrl` and place images in `public/images/products/` to activate gallery and video sections. Product pages read from this data file.
+Product pages read from `src/data/products.ts` — a single dynamic `[slug].astro` renders all 4 products. Add `youtubeUrl` field to product data and add images to `public/images/products/` to activate video and image sections.
 
 ## Tailwind v4 theme (`global.css`)
 

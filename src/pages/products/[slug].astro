@@ -1,0 +1,259 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import B2BToggle from "../../components/B2BToggle.astro";
+import BrochureButton from "../../components/BrochureButton.astro";
+import { productList } from "../../data/products";
+
+export function getStaticPaths() {
+  return productList.map((p) => ({
+    params: { slug: p.slug },
+    props: { product: p },
+  }));
+}
+
+const { product } = Astro.props;
+const related = productList.filter((p) => p.slug !== product.slug).slice(0, 3);
+
+const benefitIcons = [
+  "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+  "M13 10V3L4 14h7v7l9-11h-7z",
+  "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+  "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+  "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4",
+];
+const navSections = [
+  { id: "benefits", label: "Benefits" },
+  { id: "application", label: "Application" },
+  { id: "dosage", label: "Dosage" },
+  { id: "faq", label: "FAQ" },
+];
+---
+
+<Layout title={`Vandhara ${product.name} — ${product.tagline} | Vandhara Agrotech`} description={product.taglineLong}>
+  <article class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
+    <div class="mb-6">
+      <a href="/products" class="text-sm text-brand-green font-medium hover:text-brand-green-light transition-colors">&larr; All Products</a>
+    </div>
+
+    <div class="relative overflow-hidden bg-gradient-to-br from-brand-green via-green-800 to-brand-green-dark rounded-2xl text-white mb-10" x-data>
+      <div class="hero-glow-1" aria-hidden="true" />
+      <div class="hero-glow-2" aria-hidden="true" />
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 sm:p-12">
+        <div class="flex items-center justify-center">
+          {product.image ? (
+            <img src={product.image} alt={product.name} class="w-full max-w-sm rounded-xl shadow-2xl" />
+          ) : (
+            <div class="w-full max-w-sm aspect-[2/1] bg-white/10 rounded-xl flex items-center justify-center">
+              <span class="text-white/50 text-lg font-bold">{product.name}</span>
+            </div>
+          )}
+        </div>
+        <div class="flex flex-col justify-center">
+          <p class="text-amber-300 font-semibold text-xs tracking-[0.2em] uppercase mb-3">{product.category}</p>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold">{"VANDHARA " + product.name.toUpperCase()}</h1>
+          <p class="text-brand-gold-light font-semibold mt-2 text-lg">{product.tagline}</p>
+          <p class="mt-4 text-green-100 leading-relaxed">{product.description}</p>
+          <p class="mt-3 text-green-100 font-medium">Best for: {product.bestFor}</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="/contact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg btn-cta hover:bg-amber-600 transition-colors text-sm">Get a Quote</a>
+            <BrochureButton />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="sticky top-16 z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8"
+      x-data="{ show: false }"
+      x-init="show = true"
+    >
+      <nav class="flex gap-2 sm:gap-6 overflow-x-auto py-3 text-sm font-medium scrollbar-none" aria-label="Section navigation">
+        {navSections.map((s) => (
+          <a
+            href={`#${s.id}`}
+            class="whitespace-nowrap text-gray-500 hover:text-brand-green transition-colors"
+          >
+            {s.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+
+    <div class="space-y-12 mt-8">
+      <section id="benefits">
+        <h2 class="text-2xl font-bold text-brand-green mb-6">Key Benefits</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {product.farmerBenefits.map((b, i) => (
+            <div class="bg-white rounded-xl border border-gray-100 p-5 shadow-sm hover:shadow-md transition-shadow">
+              <div class="w-10 h-10 rounded-full bg-brand-green/10 flex items-center justify-center mb-3">
+                <svg class="w-5 h-5 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={benefitIcons[i % benefitIcons.length]} /></svg>
+              </div>
+              <span class="text-sm text-gray-700 leading-relaxed" set:html={b} />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {product.youtubeUrl && (
+        <section id="video">
+          <h2 class="text-2xl font-bold text-brand-green mb-4">Watch in Action</h2>
+          <div class="aspect-video rounded-xl overflow-hidden shadow-md">
+            <iframe src={product.youtubeUrl} title={`${product.name} video`} class="w-full h-full" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </section>
+      )}
+
+      <B2BToggle>
+        <div slot="farmer">
+          <section id="application" class="mb-10">
+            <h2 class="text-2xl font-bold text-brand-green mb-4">{product.methodSectionTitle ?? "Method of Application"}</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {product.applicationMethods.map((m) => (
+                <div class="bg-white rounded-xl border border-gray-100 p-5 shadow-sm">
+                  <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                  </div>
+                  <h3 class="font-semibold text-brand-green text-sm">{m.method}</h3>
+                  <p class="text-sm text-gray-600 mt-1 leading-relaxed" set:html={m.description} />
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section id="dosage" class="mb-10 bg-green-50 rounded-xl p-6">
+            <h2 class="text-xl font-bold text-brand-green mb-4">{product.dosageScheduleTitle ?? "Dosage & Schedule"}</h2>
+            <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {product.dosageCards.map((card) => (
+                <div class={`bg-white rounded-lg p-4${card.wide ? " sm:col-span-2" : ""}`}>
+                  <dt class="text-sm text-gray-500">{card.label}</dt>
+                  <dd class="text-lg font-bold text-brand-green" set:html={card.value} />
+                  {card.footnote && <dd class="text-xs text-gray-500 mt-1" set:html={card.footnote} />}
+                </div>
+              ))}
+            </dl>
+          </section>
+
+          {product.howToApply && (
+            <section class="mb-10">
+              <h2 class="text-xl font-bold text-brand-green mb-4">How to Apply ({product.howToApply.length} Simple Steps)</h2>
+              <ol class="space-y-4">
+                {product.howToApply.map((step, i) => (
+                  <li class="flex items-start gap-4">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-brand-green text-white font-bold text-sm shrink-0">{i + 1}</span>
+                    <span set:html={step} />
+                  </li>
+                ))}
+              </ol>
+            </section>
+          )}
+        </div>
+
+        <div slot="dealer">
+          <section class="mb-10">
+            <h2 class="text-2xl font-bold text-brand-green mb-4">Dealer / Distributor Information</h2>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+                <span><strong>Product:</strong> {"VANDHARA " + product.name.toUpperCase()} &mdash; {product.tagline}</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+                <span><strong>Category:</strong> {product.dealerCategory}</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+                <span><strong>Packaging:</strong> {product.variant.label}</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+                <span><strong>Regulatory Compliance:</strong> FCO &amp; NPOP certified</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-gold font-bold shrink-0">&#8226;</span>
+                <span set:html={product.dealerExtra} />
+              </li>
+            </ul>
+            <div class="mt-6">
+              <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg btn-cta hover:bg-amber-600 transition-colors">
+                Get Bulk Pricing
+              </a>
+            </div>
+          </section>
+        </div>
+      </B2BToggle>
+
+      <section id="faq" class="border-t border-gray-200 pt-8">
+        <h2 class="text-xl font-bold text-brand-green mb-6">Frequently Asked Questions</h2>
+        <div class="space-y-4">
+          {product.faqs.map((faq) => (
+            <details class="bg-white rounded-lg border border-gray-200">
+              <summary class="flex items-center justify-between gap-2 font-semibold text-gray-800 p-4 cursor-pointer">
+                {faq.question}
+                <svg class="faq-chevron w-4 h-4 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div class="faq-content">
+                <p class="px-4 pb-4 text-sm text-gray-600">{faq.answer}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </section>
+    </div>
+
+    <section class="mt-16 pt-8 border-t border-gray-200">
+      <h2 class="text-2xl font-bold text-brand-green mb-6">Other Products</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {related.map((p) => (
+          <a href={`/products/${p.slug}`} class="group bg-white rounded-xl border border-gray-100 p-5 shadow-sm hover:card-lift transition-all">
+            {p.image && (
+              <div class="aspect-[2/1] bg-gradient-to-br from-green-50 to-emerald-100 rounded-lg overflow-hidden mb-3">
+                <img src={p.image} alt={p.name} class="w-full h-full object-contain p-3 group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              </div>
+            )}
+            <h3 class="font-bold text-brand-green group-hover:text-brand-green-light transition-colors">{p.name}</h3>
+            <p class="text-xs text-gray-500 mt-1">{p.tagline}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <div class="flex flex-wrap gap-4 mt-8">
+      <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg btn-cta hover:bg-amber-600 transition-colors">
+        Get a Quote
+      </a>
+      <a href="/products" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition-colors">
+        View All Products
+      </a>
+    </div>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": `Vandhara ${product.name}`,
+      "description": product.taglineLong,
+      "brand": { "@type": "Brand", "name": "Vandhara Agrotech" },
+      "manufacturer": { "@type": "Organization", "name": "Lasius International Private Limited" },
+      "category": product.dealerCategory,
+      "applicationCategory": "Agriculture",
+      "offers": [{
+        "@type": "Offer",
+        "name": `${product.variant.label} Pack`,
+        "availability": "https://schema.org/InStock",
+      }],
+    })} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": product.faqs.map(f => ({
+        "@type": "Question",
+        "name": f.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.answer,
+        },
+      })),
+    })} />
+  </article>
+</Layout>

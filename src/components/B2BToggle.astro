@@ -1,8 +1,3 @@
----
-// Content is provided via the named slots "farmer" and "dealer" — no props required.
-export interface Props {}
----
-
 <div x-data="{ tab: 'farmer' }" class="mb-8" role="tablist" aria-label="B2B / B2C toggle">
   <div class="flex gap-1 bg-gray-100 rounded-lg p-1 w-fit mb-6">
     <button
@@ -10,8 +5,8 @@ export interface Props {}
       class="px-4 py-2 rounded-md text-sm font-medium transition-colors"
       :class="tab === 'farmer' ? 'bg-brand-green text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'"
       @click="tab = 'farmer'"
-      aria-selected="false" :aria-selected="tab === 'farmer' ? 'true' : 'false'"
-      tabindex="-1" :tabindex="tab === 'farmer' ? 0 : -1"
+      :aria-selected="tab === 'farmer' ? 'true' : 'false'"
+      :tabindex="tab === 'farmer' ? 0 : -1"
       role="tab"
       aria-controls="farmer-panel"
     >
@@ -22,8 +17,8 @@ export interface Props {}
       class="px-4 py-2 rounded-md text-sm font-medium transition-colors"
       :class="tab === 'dealer' ? 'bg-brand-green text-white shadow-sm' : 'text-gray-600 hover:text-gray-900'"
       @click="tab = 'dealer'"
-      aria-selected="false" :aria-selected="tab === 'dealer' ? 'true' : 'false'"
-      tabindex="-1" :tabindex="tab === 'dealer' ? 0 : -1"
+      :aria-selected="tab === 'dealer' ? 'true' : 'false'"
+      :tabindex="tab === 'dealer' ? 0 : -1"
       role="tab"
       aria-controls="dealer-panel"
     >
