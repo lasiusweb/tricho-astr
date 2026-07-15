@@ -47,7 +47,7 @@ Tests & linting
 
 ## Product data
 
-Product pages read from `src/data/products.ts` — a single dynamic `[slug].astro` renders all 4 products. Add `youtubeUrl` field to product data and add images to `public/images/products/` to activate video and image sections.
+Product data lives in `src/data/products.json` — a Content Layer `file()` loader collection (Zod schema in `src/content.config.ts`). `src/data/products.ts` is a thin `getProducts()` accessor that maps entries to `{ ...data, slug: id }` and pins display order. A single dynamic `[slug].astro` renders all 4 products. Add a `youtubeUrl` field to a product and add images to `public/images/products/` to activate video and image sections.
 
 ## Tailwind v4 theme (`global.css`)
 
@@ -76,7 +76,7 @@ Product pages read from `src/data/products.ts` — a single dynamic `[slug].astr
 - `.astro/types.d.ts` auto-generated — re-run `astro build` / `astro dev` if type errors appear.
 - **CI**: `.github/workflows/ci.yml` runs build on PRs and pushes to master. `.github/workflows/a11y.yml` runs accessibility checks (Lighthouse, axe, pa11y) on PRs.
 - **Brochure PDF**: `public/brochures/vandhara-catalog.pdf` — manually download from Google Drive (`README.md` in that folder has the link).
-- **Social links**: placeholder `#` in Footer.astro — replace with real URLs before launch.
+- **Social links**: `Footer.astro` ships only the live WhatsApp link; YouTube/Facebook/Instagram/LinkedIn are omitted until real URLs exist (add them to the `socialLinks` array).
 - **SEO**: JSON-LD structured data on product + about + partner pages. `@astrojs/sitemap` generates `sitemap-index.xml`.
 - **Images**: when real raster photos are added, import them into `src/` and render with `astro:assets` (`<Image>`) instead of raw `<img>` from `public/` for automatic optimization/responsive sizing — all current images are SVG placeholders.
 - **GEO targets**: South Indian states (Karnataka, Tamil Nadu, Andhra, Telangana, Kerala) mentioned in contact sidebar and partner page.

@@ -1,18 +1,28 @@
 ---
+import { existsSync } from "node:fs";
+import { join } from "node:path";
+
 export interface Props {
   label?: string;
 }
 
 const { label = "Download Brochure" } = Astro.props;
+
+// ponytail: hide until the real PDF is added; avoids a 404 download link.
+// Use process.cwd() (project root); import.meta.dirname points into dist/ at build time.
+const pdfPath = join(process.cwd(), "public/brochures/vandhara-catalog.pdf");
+const enabled = existsSync(pdfPath);
 ---
 
-<a
-  href="/brochures/vandhara-catalog.pdf"
-  download
-  class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border-2 border-brand-green text-brand-green font-semibold hover:bg-brand-green hover:text-white transition-colors text-sm"
->
-  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-  </svg>
-  {label}
-</a>
+{enabled && (
+  <a
+    href="/brochures/vandhara-catalog.pdf"
+    download
+    class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border-2 border-brand-green text-brand-green font-semibold hover:bg-brand-green hover:text-white transition-colors text-sm"
+  >
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+    </svg>
+    {label}
+  </a>
+)}
