@@ -29,7 +29,7 @@ Tests & linting
 | `/contact` | Contact form w/ Farmer/Dealer toggle (Web3Forms) |
 | `/partner` | Partner/Dealer opportunities |
 | `/blog` | Learning Center (blog listing) |
-| `/blog/[...slug]` | Dynamic blog posts (2 placeholder articles) |
+| `/blog/[slug]` | Dynamic blog posts (5 articles, Content Layer API) |
 | `/testimonials` | Placeholder farmer testimonials |
 | `/legal/privacy` | Privacy Policy |
 | `/legal/terms` | Terms & Conditions |
@@ -63,7 +63,7 @@ Product pages read from `src/data/products.ts` — a single dynamic `[slug].astr
 
 ## Cloudflare Pages deployment
 
-- **Output**: `output: 'static'` in `astro.config.mjs` — all 17 pages pre-rendered to `dist/`
+- **Output**: `output: 'static'` in `astro.config.mjs` — all 19 pages pre-rendered to `dist/`
 - **Deploy workflow**: `.github/workflows/deploy.yml` deploys `dist/` to Cloudflare Pages via `npx wrangler pages deploy`
 - **Required repo secrets**: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
 - **Manual deploy**: `npx wrangler pages deploy dist --project-name=tricho-astr`
@@ -78,5 +78,6 @@ Product pages read from `src/data/products.ts` — a single dynamic `[slug].astr
 - **Brochure PDF**: `public/brochures/vandhara-catalog.pdf` — manually download from Google Drive (`README.md` in that folder has the link).
 - **Social links**: placeholder `#` in Footer.astro — replace with real URLs before launch.
 - **SEO**: JSON-LD structured data on product + about + partner pages. `@astrojs/sitemap` generates `sitemap-index.xml`.
+- **Images**: when real raster photos are added, import them into `src/` and render with `astro:assets` (`<Image>`) instead of raw `<img>` from `public/` for automatic optimization/responsive sizing — all current images are SVG placeholders.
 - **GEO targets**: South Indian states (Karnataka, Tamil Nadu, Andhra, Telangana, Kerala) mentioned in contact sidebar and partner page.
 - VS Code debugging: "Development server" launch config runs `./node_modules/.bin/astro dev`.
