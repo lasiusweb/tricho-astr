@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { productList } from "../data/products";
+import { getProducts } from "../data/products";
 
+const productList = await getProducts();
 const products = productList.map(({ slug, name, tagline, description, benefit }) => ({
   slug, name, tagline, description, benefit,
 }));

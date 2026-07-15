@@ -2,17 +2,20 @@
 import Layout from "../../layouts/Layout.astro";
 import B2BToggle from "../../components/B2BToggle.astro";
 import BrochureButton from "../../components/BrochureButton.astro";
-import { productList } from "../../data/products";
+import { getProducts } from "../../data/products";
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const productList = await getProducts();
   return productList.map((p) => ({
     params: { slug: p.slug },
-    props: { product: p },
+    props: {
+      product: p,
+      related: productList.filter((x) => x.slug !== p.slug).slice(0, 3),
+    },
   }));
 }
 
-const { product } = Astro.props;
-const related = productList.filter((p) => p.slug !== product.slug).slice(0, 3);
+const { product, related } = Astro.props;
 
 const benefitIcons = [
   "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",

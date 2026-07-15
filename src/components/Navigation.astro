@@ -1,6 +1,7 @@
 ---
-import { productList } from "../data/products";
+import { getProducts } from "../data/products";
 
+const productList = await getProducts();
 const currentPath = Astro.url.pathname;
 
 const links = [

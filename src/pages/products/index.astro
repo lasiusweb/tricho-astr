@@ -1,7 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import BrochureButton from "../../components/BrochureButton.astro";
-import { productList } from "../../data/products";
+import { getProducts } from "../../data/products";
+
+const productList = await getProducts();
 
 const categoryColors: Record<string, string> = {
   "Soil Health": "bg-emerald-100 text-emerald-700",
