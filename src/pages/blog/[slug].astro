@@ -45,7 +45,7 @@ const jsonLd = {
 };
 ---
 
-<Layout title={`${post.data.title} — Vandhara Agrotech Learning Center`} description={post.data.excerpt}>
+<Layout title={`${post.data.title} — Vandhara Agrotech Learning Center`} description={post.data.excerpt} canonical={pageUrl}>
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <article class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16">
     <div class="mb-6">
