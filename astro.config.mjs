@@ -9,9 +9,8 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://vandharaagrotech.com',
   output: 'static',
-  vite: {
-    plugins: [tailwindcss()]
-  },
+  // Leave Vite plugins minimal — using Tailwind via CSS build pipeline avoids Vite rollup input issues
+  vite: {},
 
   integrations: [sitemap()]
 });
