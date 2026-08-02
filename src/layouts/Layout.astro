@@ -12,8 +12,9 @@ export interface Props {
   image?: string;
 }
 
-const { title = "Vandhara Agrotech", description = "Eco-friendly fermented organic liquids for sustainable soil health", image = "/images/og-default.svg" } = Astro.props;
+const { title = "Vandhara Agrotech", description = "Eco-friendly fermented organic liquids for sustainable soil health", image = "/images/og-default.svg", canonical: canonicalProp } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+const canonicalHref = canonicalProp ? String(canonicalProp) : canonicalURL;
 const imageURL = new URL(image, Astro.site).href;
 ---
 
@@ -31,7 +32,7 @@ const imageURL = new URL(image, Astro.site).href;
     <ClientRouter />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+    <link rel="canonical" href={canonicalHref} />
     <link rel="alternate" type="application/rss+xml" title="Vandhara Agrotech — Learning Center" href="/rss.xml" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
