@@ -9,7 +9,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test:e2e": "playwright test",
+    "a11y:lhci": "lhci autorun --config=./.lighthouserc.json"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@lhci/cli": "^0.8.0"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",

@@ -4,62 +4,80 @@ Purpose: quick repo guide for Copilot sessions — build commands, high-level ar
 
 ---
 
-## Quick commands
+## Build, test, and lint commands
 - Install deps: `npm install`
-- Dev server: `npm run dev` (localhost:4321)
-- Build: `npm run build` (outputs `dist/`)
+- Run dev server: `npm run dev` (localhost:4321)
+- Build production: `npm run build` (outputs `dist/`)
 - Preview production build: `npm run preview`
 - Astro CLI passthrough: `npm run astro -- <args>`
+- Node engine: `node >= 22.12.0` (see package.json `engines`)
 
 Tests & linting
-- No test runner or linters set up. There is no `npm test`; do not invent one.
-- CI is configured: `ci.yml` runs `npm run build` on pushes/PRs to master; `a11y.yml` runs Lighthouse/axe/pa11y on PRs; `deploy.yml` deploys `dist/` to Cloudflare Pages.
-- If a test runner is adopted later, record the command here and in AGENTS.md.
+- No test runner or linter configured in this repo. There is no `npm test` script; do not invent one.
+- Single-test guidance: there are no unit tests; add a test runner (Vitest/Jest) and then document how to run a single test (e.g., `npm run test -- -t "My test name"`). Record the exact command here when added.
+- CI: `.github/workflows/ci.yml` runs `npm run build` on PRs/pushes. Accessibility CI (`.github/workflows/a11y.yml`) runs Lighthouse/axe/pa11y on PRs. Deployment handled by `deploy.yml` to Cloudflare Pages.
 
 ---
 
 ## High-level architecture (what matters to Copilot)
-- Framework: Astro v6. Pages are file-based under `src/pages/` (including `src/pages/products/*`, `blog`, `legal`, etc.).
-- Layout & composition: `src/layouts/Layout.astro` wraps pages and includes `Navigation`, `Footer`, `FloatingCTA`, and `WhatsAppBubble` components.
-- Product model: canonical product data lives in `src/data/products.ts` and is the single source of truth for product pages, galleries and YouTube embeds. Updating product metadata here updates all product pages.
-- Components: key UI pieces are in `src/components/` — notable ones: `Navigation.astro`, `Footer.astro`, `B2BToggle.astro`, `BrochureButton.astro`.
-- Assets: public static assets live under `public/` (images under `public/images/products/`, brochure at `public/brochures/vandhara-catalog.pdf`).
-- Styles: Tailwind v4 theme and a few utilities are defined in `src/styles/global.css` (`@theme` custom colors, `xs` breakpoint at 480px, `x-cloak`, `line-clamp-2`).
-- Forms: contact form posts to Web3Forms API in `src/pages/contact.astro` — set `access_key` there.
+- Framework: Astro v6 — file-based routing under `src/pages/` (products, blog, legal, etc.).
+- Layouts & composition: `src/layouts/Layout.astro` wraps pages and composes `Navigation`, `Footer`, `FloatingCTA`, and `WhatsAppBubble` components.
+- Product data: canonical product content is the single source of truth: `src/data/products.json` (Content Collection) + `src/data/products.ts` accessor which maps collection entries to `{ ...data, slug: id }` and pins display order. Update product metadata here to change product pages.
+- Pages: a single dynamic `src/pages/products/[slug].astro` renders product detail for the 4 products.
+- Components & UI: `src/components/` contains small reusable pieces (Navigation, Footer, B2BToggle, BrochureButton, FloatingCTA). Prefer editing components rather than duplicating markup across pages.
+- Styles: Tailwind v4 with a custom theme in `src/styles/global.css` (custom colors, `xs` breakpoint at 480px, utilities like `x-cloak`, `line-clamp-2`).
+- Content Layer: Content is authored under `src/content/` (blog posts) and validated by Zod schema in `src/content.config.ts`.
+- Forms: Contact form posts to Web3Forms API (`src/pages/contact.astro`). Keep `access_key` out of source control — set via environment/secret when needed.
+- Assets: static assets in `public/` — product images in `public/images/products/`, brochure at `public/brochures/vandhara-catalog.pdf` (keep path or update BrochureButton when replacing file).
+- Deployment: Cloudflare Pages via `npx wrangler pages deploy`; required secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
 
 ---
 
-## Repo-specific conventions and patterns
-- B2B/B2C toggle: Product pages and contact form use Alpine.js (`x-data`, `x-show`, `x-cloak`) for view toggles. Copilot should prefer editing product data or Alpine bindings rather than creating parallel state logic.
-- Single source for product UI: product pages read from `src/data/products.ts`. Do not duplicate product metadata in page files.
-- Product pages: a single `src/pages/products/[slug].astro` renders all 4 products from `src/data/products.ts`. Add images to `public/images/products/` and a `youtubeUrl` field to enable media.
-- Brochure: brochure download expects `public/brochures/vandhara-catalog.pdf`. Keep filename/path or update `BrochureButton.astro` accordingly when replacing the file.
-- Placeholders to replace before launch: Footer social links are `#` placeholders; replace with real URLs.
-- Node version: project requires Node >= 22.12.0 (see package.json engines).
-- Generated types: `.astro/types.d.ts` is generated by Astro — re-run `astro dev` or `astro build` if missing or when types change.
-- Unused deps: several packages are present but not wired (less/sass/stylus/lightningcss, swup, partytown). Confirm usage before removing.
+## Key conventions (repo-specific patterns)
+- Single source product model: Always edit `src/data/products.json` (Content layer) and let `src/data/products.ts` / `[slug].astro` handle mapping and ordering.
+- B2B/B2C UI toggle: Uses Alpine.js (`x-data`, `x-show`, `x-cloak`) for farmer/dealer toggles in product pages and contact form. Modify Alpine state/markup in components rather than adding a parallel JS framework.
+- Images & media: Add product images to `public/images/products/` and add `youtubeUrl` to a product entry to enable video embeds on product pages.
+- Brochure file: Keep `public/brochures/vandhara-catalog.pdf` filename unless BrochureButton is updated.
+- Accessibility checks: a11y pipeline runs on PRs — prefer semantic HTML and aria attributes already present in contact and nav components.
+- No global state: Pages rely on component-scoped Alpine state and Content Layer data. Avoid adding global browser-side state unless necessary.
+- Vite compatibility: `vite` is pinned to `^7.3.6` in `package.json`/overrides to avoid Vite 8 incompatibility with `@tailwindcss/vite`.
 
 ---
 
-## Context engineering (keep agent context accurate)
-- `AGENTS.md` is the canonical agent context (pages, components, conventions). Do not create parallel instruction files; update it when the repo changes so future agents load correct context.
-- `src/data/products.ts` is the single source of truth for product data — edit it there, never inline duplicates in page files.
-- For multi-file changes, map the affected files first (use the `context-map` skill) and plan the sequence; verify each file before moving on.
-- Use descriptive file paths and semantic names; prefer explicit types and named constants over magic values so agents infer intent from context.
+## Files & docs to consult (do not duplicate)
+- `AGENTS.md` — canonical agent context and page list.
+- `README.md` — Astro starter notes and quick commands.
+- `src/data/products.*` and `src/pages/products/[slug].astro` — product model and renderer (single source of truth).
+- `src/pages/contact.astro` — contact form implementation and Web3Forms usage.
 
 ---
 
-## Existing docs to reference
-- README.md: general Astro starter notes.
-- AGENTS.md: project-specific summary (pages, components, notable details). Copilot should consult AGENTS.md for page lists and product info when composing changes.
+## AI assistant config checks
+- Existing Copilot instructions found (this file) and `AGENTS.md` present.
+- No CLAUDE.md, .cursorrules, CONVENTIONS.md, AIDER_CONVENTIONS.md, .windsurfrules, or .clinerules were detected.
+- `.opencode/` exists with project notes; consult if agent-specific policies are added there.
 
 ---
 
 ## When editing
-- Change product metadata in `src/data/products.ts`.
-- For UI markup changes, modify the relevant component under `src/components/` and test with `npm run dev`.
-- For form handling, update `src/pages/contact.astro` and keep `access_key` secret (do not commit real keys).
+- Update product metadata in the Content Layer (`src/data/products.json`) and confirm order in `src/data/products.ts`.
+- For UI changes, edit the specific component under `src/components/` and validate with `npm run dev`.
+- For the contact form, rotate or inject `access_key` via environment/CI secrets; never commit real API keys.
+- If adding tests or linters, add scripts to `package.json` and record the single-test invocation here.
 
 ---
 
-If this file should be tuned (more examples, common PR tasks, or code patterns), say what to add and the file will be updated.
+If this file should be tuned (common PR tasks, examples of small edits, or quick grep patterns Copilot should run before editing), say what to add and the file will be updated.
+
+---
+
+## MCP servers (Playwright & Lighthouse)
+- Recommended: configure a Playwright MCP server for end-to-end browser testing and a Lighthouse/LHCI server for local a11y/perf checks (CI already runs site-level a11y on PRs).
+- Minimal local setup steps to add (examples to commit when approved):
+  - npm scripts:
+    - "test:e2e": "playwright test"
+    - "a11y:lhci": "lhci autorun"
+  - Example Playwright config (playwright.config.ts) pointing baseURL to http://localhost:4321 and a simple test in tests/playwright/home.spec.ts that opens `/` and checks title.
+- After adding files, run `npm install -D @playwright/test @lhci/cli` and validate with `npm run dev` + `npm run test:e2e`.
+
+Ask to add the Playwright/LHCI config files and a starter E2E test to the repo (yes/no).
