@@ -1,0 +1,3 @@
+# Prevent lockfile merge attacks by treating lockfiles as binary
+package-lock.json merge=binary
+pnpm-lock.yaml merge=binary
