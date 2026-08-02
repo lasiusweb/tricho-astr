@@ -1,0 +1,9 @@
+{
+  "name": "tricho-astr (secure)",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "postCreateCommand": "npm config set ignore-scripts true && npm config set allow-git none",
+  "remoteEnv": {
+    "NPM_CONFIG_IGNORE_SCRIPTS": "true",
+    "NPM_CONFIG_ALLOW_GIT": "none"
+  }
+}
