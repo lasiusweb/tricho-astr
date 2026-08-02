@@ -129,6 +129,13 @@ const imageURL = new URL(image, Astro.site).href;
         }, { threshold: 0.5 });
         document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
       });
+
+      // Register a minimal service worker to enable installability checks in Lighthouse
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
     </script>
   </body>
 </html>
